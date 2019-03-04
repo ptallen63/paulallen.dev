@@ -45,6 +45,19 @@ const SectionLinks = styled(Statistic)`
 }
 `
 
+const socialLinks = [
+  {name: 'twitter', color: 'twitter', icon: 'twitter', text: 'Twitter', hiddenText: '@ptallen63', link: 'https://twitter.com/ptallen63'},
+  {name: 'linkedin', color: 'linkedin', icon: 'linkedin', text: 'LinkedIn', hiddenText: 'ptallen63', link: 'https://www.linkedin.com/in/ptallen63'},
+  {name: 'github', color: 'black', icon: 'github', text: 'Github', hiddenText: '@ptallen63', link: 'https://github.com/ptallen63'},
+]
+
+const sections = [
+  {name: 'Projects', link: 'proejcts', icon: 'code'},
+  {name: 'About Me', link: 'about', icon: 'info'},
+  {name: 'Resume', link: 'resume', icon: 'file text'},
+  {name: 'Contact Me', link: 'contact', icon: 'mail outline'},
+]
+
 const IndexPage = (props) => (
     <Layout>
       <SEO title="Paulallen.dev" keywords={[`gatsby`, `application`, `react`]} />
@@ -58,75 +71,32 @@ const IndexPage = (props) => (
 
               <Typed strings={homepageTypedText}/>
 
-              <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/ptallen63">
-                <Button animated="fade" color="twitter" size="large">
-                  <Button.Content visible>
-                    <Icon name="twitter" /> Twitter
-                  </Button.Content>
-                  <Button.Content hidden>@ptallen63</Button.Content>
-                </Button>
-              </a>
-
-              <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/ptallen63">
-                <Button animated="fade" color="linkedin" size="large">
-                  <Button.Content visible>
-                    <Icon name="linkedin" /> LinkedIn
-                  </Button.Content>
-                  <Button.Content hidden>ptallen63</Button.Content>
-                </Button>
-              </a>
-
-              <a target="_blank" rel="noopener noreferrer" href="https://github.com/ptallen63">
-                <Button animated="fade" secondary size="large">
-                  <Button.Content visible>
-                    <Icon name="github" /> Github
-                  </Button.Content>
-                  <Button.Content hidden>@ptallen63</Button.Content>
-                </Button>
-              </a>
+              {socialLinks.map(link => (
+                <a target="_blank" rel="noopener noreferrer" href={link.link}>
+                  <Button animated="fade" color={link.color} size="large">
+                    <Button.Content visible>
+                      <Icon name={link.icon} /> {link.text}
+                    </Button.Content>
+                    <Button.Content hidden>{link.hiddenText}</Button.Content>
+                  </Button>
+                </a>
+              ))}
 
               <Divider />
               <Grid columns={4} stackable centered>
-                <Grid.Column textAlign="center">
-                  <Link to="projects">
-                    <SectionLinks>
-                      <SectionIcons>
-                        <Icon size="small" name="code" />
-                      </SectionIcons>
-                      <SectionLabel>Projects</SectionLabel>
-                    </SectionLinks>
-                  </Link>
-                </Grid.Column>
-                <Grid.Column textAlign="center">
-                  <Link to="about">
-                    <SectionLinks>
-                      <SectionIcons>
-                        <Icon size="small" name="info" />
-                      </SectionIcons>
-                      <SectionLabel>About Me</SectionLabel>
-                    </SectionLinks>
-                  </Link>
-                </Grid.Column>
-                <Grid.Column textAlign="center">
-                  <Link to="resume">
-                  <SectionLinks>
-                      <SectionIcons>
-                        <Icon size="small" name="file text" />
-                      </SectionIcons>
-                      <SectionLabel>Resume</SectionLabel>
-                  </SectionLinks>
-                  </Link>
-                </Grid.Column>
-                <Grid.Column textAlign="center">
-                  <Link to="contact">
-                  <SectionLinks>
-                      <SectionIcons>
-                        <Icon size="small" name="mail outline" />
-                      </SectionIcons>
-                      <SectionLabel>Contact Me</SectionLabel>
-                  </SectionLinks>
-                  </Link>
-                </Grid.Column>
+              {sections.map(section => (
+
+                  <Grid.Column textAlign="center">
+                    <Link to={section.link}>
+                      <SectionLinks>
+                        <SectionIcons>
+                          <Icon size="small" name={section.icon} />
+                        </SectionIcons>
+                        <SectionLabel>{section.name}</SectionLabel>
+                      </SectionLinks>
+                    </Link>
+                  </Grid.Column>
+                ))}
               </Grid>
               </Grid.Column>
 
