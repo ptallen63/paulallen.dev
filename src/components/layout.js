@@ -12,8 +12,6 @@ import Footer from './footer';
 
 import 'semantic-ui-css/semantic.min.css'
 
-import Header from "./header"
-
 const Layout = (props) => (
   <StaticQuery
     query={graphql`

@@ -28,13 +28,13 @@ const AboutPage = (props) => (
               centered
             />
             <ButtonGroup>
-              <a target="_blank" href="https://twitter.com/ptallen63">
+              <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/ptallen63">
                 <Button circular color="twitter" icon="twitter" />
               </a>
-              <a target="_blank" href="https://www.linkedin.com/in/ptallen63">
+              <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/ptallen63">
                 <Button circular color="linkedin" icon="linkedin" />
               </a>
-              <a target="_blank" href="https://github.com/ptallen63">
+              <a target="_blank" rel="noopener noreferrer" href="https://github.com/ptallen63">
                 <Button circular secondary icon="github" />
               </a>
             </ButtonGroup>
