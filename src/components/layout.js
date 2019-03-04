@@ -8,12 +8,13 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
+import Navbar from './navabar';
 
 import 'semantic-ui-css/semantic.min.css'
 
 import Header from "./header"
 
-const Layout = ({ children }) => (
+const Layout = (props) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -26,9 +27,9 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
-        <Header siteTitle={data.site.siteMetadata.title} />
+        {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
         <div>
-          <main>{children}</main>
+          <main>{props.children}</main>
           <footer>
             © {new Date().getFullYear()}, Built with
             {` `}
