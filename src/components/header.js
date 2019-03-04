@@ -1,6 +1,5 @@
 import PropTypes from "prop-types"
 import React from "react"
-import Navbar from './navabar'
 
 const Header = ({ siteTitle }) => (
   <header>

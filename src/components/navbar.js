@@ -17,7 +17,7 @@ const MainMenu = styled(Menu)`
 
 const SecondaryMenu = styled(Menu.Menu)`
   background-color: #fff;
-  margin-right: 50px;
+  margin-right: 50px !important;
 `
 
 const StyledLink = styled(Link)`
