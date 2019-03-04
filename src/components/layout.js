@@ -8,7 +8,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
-import Navbar from './navabar';
+import Footer from './footer';
 
 import 'semantic-ui-css/semantic.min.css'
 
@@ -30,11 +30,7 @@ const Layout = (props) => (
         {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
         <div>
           <main>{props.children}</main>
-          <footer>
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
-          </footer>
+          <Footer/>
         </div>
       </>
     )}
