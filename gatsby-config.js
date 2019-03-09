@@ -1,8 +1,20 @@
+var proxy = require("http-proxy-middleware")
 module.exports = {
   siteMetadata: {
     title: `PaulAllen.dev`,
     description: `Developer site for Paul Allen who is a Software Engineer that loves programing`,
     author: `@ptallen63`,
+  },
+  developMiddleware: app => {
+    app.use(
+      "/.netlify/functions/",
+      proxy({
+        target: "http://localhost:9000",
+        pathRewrite: {
+          "/.netlify/functions/": "",
+        },
+      })
+    )
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

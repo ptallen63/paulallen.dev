@@ -5,7 +5,7 @@ import {
   Form, Input, TextArea, Button, Message,
 } from 'semantic-ui-react';
 import { contactFormDefault } from 'data/defaults';
-// import NetlifyFunctions from 'services/apis';
+import NetlifyFunctions from 'services/apis';
 import theme from 'styles/theme';
 import validate from 'utils/validate';
 import sanitize from 'utils/sanitize';
@@ -38,25 +38,6 @@ const SubmitButton = styled(Button)`
     width: 100%;
   }
 `;
-
-const CloseButton = styled.span`
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  @media screen and (max-width: 675px) {
-    display: none;
-  }
-`;
-
-const CloseButtonMobile = styled(Button)`
-  display: none !important;
-  @media screen and (max-width: 675px) {
-    display: block !important;
-    margin-bottom: 30px !important;
-    margin-top: 20px !important;
-  }
-`;
-
 
 export default class ContactModal extends Component {
   constructor(props) {
@@ -129,18 +110,18 @@ export default class ContactModal extends Component {
     } else {
       form.loading = true;
       this.setState({ form });
-      // NetlifyFunctions.contactData(packageUp(form.data))
-      //   .then(() => {
-      //     form.loading = false;
-      //     form.submitted = true;
-      //     this.setState({ form });
-      //   })
-      //   .catch((err) => {
-      //     form.loading = false;
-      //     form.submitError = true;
-      //     this.setState({ form });
-      //     console.error(err); // eslint-disable-line no-console
-      //   });
+      NetlifyFunctions.contactData(packageUp(form.data))
+        .then(() => {
+          form.loading = false;
+          form.submitted = true;
+          this.setState({ form });
+        })
+        .catch((err) => {
+          form.loading = false;
+          form.submitError = true;
+          this.setState({ form });
+          console.error(err); // eslint-disable-line no-console
+        });
     }
   }
 
