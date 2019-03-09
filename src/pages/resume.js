@@ -124,7 +124,7 @@ const ResumePage = (props) => {
 
   return (
     <Layout>
-    <SEO title="Resume" />
+    <SEO title="Resume" keywords={["Resume", "Paul Allen", "React", "Vue", "Engineer"]} />
     <Navbar {...props} />
 
     <Container>
