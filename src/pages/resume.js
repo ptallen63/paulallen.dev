@@ -148,6 +148,7 @@ const ResumePage = (props) => {
       </Container>
 
       <Container text style={{ paddingTop: '30px' }}>
+        {/* Key Points Section */}
         <Grid columns={3} centered>
           <Grid.Column textAlign='center'>
             <KeyPoint>
@@ -169,7 +170,7 @@ const ResumePage = (props) => {
           </Grid.Column>
 
         </Grid>
-
+          {/* Technolgies Section */}
         <Segment>
             <Label as="a" color="blue" ribbon>Technologies</Label>
             <Technologies>
@@ -177,11 +178,13 @@ const ResumePage = (props) => {
             </Technologies>
         </Segment>
 
+          {/* Education Section */}
         <Segment>
           <Label as="a" color="blue" ribbon>Education</Label>
           <List>{renderEduction}</List>
         </Segment>
 
+          {/* Projects Section */}
         <Segment>
           <Label as="a" color="blue" ribbon>Projects</Label>
           <p>
@@ -192,14 +195,19 @@ const ResumePage = (props) => {
           <List>{renderProjects}</List>
         </Segment>
 
+          {/* Experience Section */}
         <Segment>
           <Label as="a" color="blue" ribbon>Experience</Label>
           <List>{renderExperience}</List>
         </Segment>
+
+          {/* Skills Section */}
         <Segment>
           <Label as="a" color="blue" ribbon>Skills</Label>
           <List>{renderSkills}</List>
         </Segment>
+
+        {/* Honors Section */}
         <Segment>
           <Label as="a" color="blue" ribbon>Awards/Honors</Label>
           <List>{renderHonors}</List>
