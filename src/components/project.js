@@ -34,9 +34,7 @@ const ProjectCard = styled(Segment)`
   }
 `;
 
-const Date = styled.span`
-
-`
+const Date = styled.span``;
 
 const Project = props => {
   const { project } = props;
