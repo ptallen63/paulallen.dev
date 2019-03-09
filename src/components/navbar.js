@@ -12,7 +12,7 @@ const MainMenu = styled(Menu)`
   padding: 0px !important;
   height: 50px;
   border-color: #fff;
-  background-color: #fff;
+  background-color: #fff !important;
 `
 
 const SecondaryMenu = styled(Menu.Menu)`
