@@ -1,11 +1,14 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "paulallen-dev",
   "private": true,
   "description": "A simple starter to get up and developing quickly with Gatsby",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Paul Allen",
   "dependencies": {
+    "axios": "^0.18.0",
+    "classnames": "^2.2.6",
     "components": "^0.1.0",
+    "dotenv": "^6.2.0",
     "gatsby": "^2.1.19",
     "gatsby-image": "^2.0.30",
     "gatsby-plugin-google-tagmanager": "^2.0.9",
@@ -20,6 +23,7 @@
     "gatsby-source-filesystem": "^2.0.23",
     "gatsby-transformer-remark": "^2.3.1",
     "gatsby-transformer-sharp": "^2.1.15",
+    "lodash": "^4.17.11",
     "node-sass": "^4.11.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.3",
@@ -34,6 +38,7 @@
     "typed.js": "^2.0.10"
   },
   "devDependencies": {
+    "netlify-lambda": "^1.4.2",
     "prettier": "^1.16.4"
   },
   "keywords": [
@@ -41,13 +46,14 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
+    "build": "netlify-lambda build ./src/netlify-functions && gatsby build",
     "dev": "gatsby develop",
     "develop": "gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
-    "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
+    "serve:lambda": "netlify-lambda serve ./src/netlify-functions",
+    "build:lambda": "netlify-lambda build ./src/netlify-functions"
   },
   "repository": {
     "type": "git",

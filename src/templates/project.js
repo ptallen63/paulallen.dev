@@ -16,7 +16,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 var settings = {
   infinite: true,
-  speed: 500,
+  speed: 750,
   slidesToShow: 1,
   slidesToScroll: 1,
   dots: true,
@@ -48,7 +48,11 @@ const SiteLink = styled.a`
   color: #000;
 `;
 
+const ProjectHeader = styled(Header)``;
+const ProjectSubHeader = styled(Header.Subheader)``;
+
 const BackToProjectsLink = styled(Link)``;
+const ProjectHTML = styled.div``;
 
 export default function Template(props) {
   const { markdownRemark: project } = props.data;
@@ -63,13 +67,13 @@ export default function Template(props) {
     <HeroImage> <Slider {...settings}>{images}</Slider> </HeroImage>
     <MainContent>
       <BackToProjectsLink to='/projects'> <Icon name='arrow circle left' />back to projects</BackToProjectsLink>
-      <Header as="h1">
+      <ProjectHeader as="h1">
         {project.frontmatter.title}
         <SiteLink href={project.frontmatter.url}>
           {" "}
           <Icon name="arrow circle right" />
         </SiteLink>
-        <Header.Subheader>
+        <ProjectSubHeader>
           {moment(project.frontmatter.date).format("MMM Do YYYY")}
           <Label size="mini" color={getTypeData(project.frontmatter.type).color}>
             <Icon name={getTypeData(project.frontmatter.type).icon} />
@@ -78,11 +82,11 @@ export default function Template(props) {
           <Label size="mini" color={getStatusColor(project.frontmatter.status)}>
             {project.frontmatter.status}
           </Label>
-        </Header.Subheader>
-      </Header>
+        </ProjectSubHeader>
+      </ProjectHeader>
       <Header>{tags}</Header>
 
-      <div dangerouslySetInnerHTML={{ __html: project.html }} />
+      <ProjectHTML dangerouslySetInnerHTML={{ __html: project.html }} />
     </MainContent>
   </Layout>;
 }
