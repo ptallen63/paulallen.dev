@@ -37,7 +37,7 @@ const ProjectCard = styled(Segment)`
 const Date = styled.span``;
 
 const Project = (props) => {
-  const { project } = props;
+  const { project, id } = props;
   const tags = [];
   project.frontmatter.tags.map((tag, i) => tags.push(
     <Label tag size="mini" key={i}>
@@ -48,7 +48,7 @@ const Project = (props) => {
   return (
     <Grid.Column largeScreen={5} tablet={8} mobile={8}>
       <Link to={project.frontmatter.path}>
-        <ProjectCard key={props.id}>
+        <ProjectCard key={id}>
           <Image
             fluid
             label={{

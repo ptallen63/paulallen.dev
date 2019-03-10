@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 import {
   Form, Input, TextArea, Button, Message,
 } from 'semantic-ui-react';
@@ -19,9 +18,6 @@ const Wrapper = styled.div`
   min-height: 400px;
   margin: 0 auto;
   padding: 30px;
-`;
-
-const Heading = styled.h1`
 `;
 
 const ErrorMessage = styled.p`

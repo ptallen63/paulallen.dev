@@ -57,6 +57,7 @@ const BackToProjectsLink = styled(Link)``;
 const ProjectHTML = styled.div``;
 
 export default function Template(props) {
+  // eslint-disable-next-line
   const { markdownRemark: project } = props.data;
 
   const images = project.frontmatter.images.map((image, i) => <div key={i}><Screenshot centered src={image} /></div>);

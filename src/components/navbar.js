@@ -45,8 +45,8 @@ const MenuItem = styled(Menu.Item)`
 // RegExp for the Project route
 const regex = new RegExp('/(project/).*');
 
-const Navbar = (props) => {
-  const activeItem = props.location.pathname || '';
+const Navbar = ({ location }) => {
+  const activeItem = location.pathname || '';
   return (
     <Wrapper>
       <MainMenu fixed="top" secondary>

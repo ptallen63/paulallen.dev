@@ -21,7 +21,7 @@ import Navbar from '../components/navbar';
 import { getTypeData } from '../utils/helpers';
 import {
   workItems, skills, honors, degrees, technologies,
-} from '../data/resumeData.js';
+} from '../data/resumeData';
 
 // KeyPoint
 const KeyPoint = styled(Statistic)``;
@@ -65,6 +65,7 @@ const Technologies = styled.div`
 `;
 
 const ResumePage = (props) => {
+  // eslint-disable-next-line
   const renderProjects = props.data.allMarkdownRemark.edges.map(({ node: project }) => (
     <Project key={project.id}>
       <ProjectIcon name={getTypeData(project.frontmatter.type).icon} />

@@ -66,7 +66,7 @@ const sections = [
   { name: 'Contact Me', link: 'contact', icon: 'mail outline' },
 ];
 
-const IndexPage = props => (
+const IndexPage = () => (
   <Layout>
     <SEO title="Paulallen.dev" keywords={['gatsby', 'application', 'react']} />
     <Wrapper>
@@ -99,11 +99,11 @@ const IndexPage = props => (
                 <Grid.Column textAlign="center">
                   <Link to={section.link}>
                     <SectionLinks>
-                        <SectionIcons>
-                          <Icon size="small" name={section.icon} />
-                        </SectionIcons>
-                        <SectionLabel>{section.name}</SectionLabel>
-                      </SectionLinks>
+                      <SectionIcons>
+                        <Icon size="small" name={section.icon} />
+                      </SectionIcons>
+                      <SectionLabel>{section.name}</SectionLabel>
+                    </SectionLinks>
                   </Link>
                 </Grid.Column>
               ))}

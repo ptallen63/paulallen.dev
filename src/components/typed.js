@@ -14,9 +14,10 @@ const Keywords = styled(Header)`
 
 class TypedComponent extends Component {
   componentDidMount() {
+    const { strings } = this.props;
     // const strings = homepageTypedText
     const options = {
-      strings: this.props.strings,
+      strings,
       typeSpeed: 30,
       backSpeed: 20,
       smartBackspace: true,
