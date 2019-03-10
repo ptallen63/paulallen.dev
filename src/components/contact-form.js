@@ -127,7 +127,7 @@ export default class ContactModal extends Component {
 
   handleInput(e) {
     const key = e.currentTarget.id;
-    const val = e.currentTarget.value.trim();
+    const val = e.currentTarget.value;
     const { form } = this.state;
     form.data[key].value = sanitize(val);
     this.setState({
