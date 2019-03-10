@@ -27,15 +27,11 @@ const Footer = () => (
       <StyledDivider />
       <p>
         <Link to="/">Home</Link>
-        {' '}
-|
+        <span> | </span>
         <Link to="/about">About</Link>
-        {' '}
-|
-        {' '}
+        <span> | </span>
         <Link to="/projects">Projects</Link>
-        {' '}
-|
+        <span> | </span>
         <Link to="/resume">Resume</Link>
       </p>
       <SmallParagraph>
