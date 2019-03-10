@@ -63,11 +63,14 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
     "serve:lambda": "netlify-lambda serve ./src/netlify-functions",
     "build:lambda": "netlify-lambda build ./src/netlify-functions",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "deploy": "git checkout production && git pull && git merge master && git push && git checkout master"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn lint --fix"
+      "pre-commit": "yarn lint --fix",
+      "pre-deploy":"git checkout master && git pull",
+      "post-deploy": "echo \"Deployment complete!\""
     }
   }
 }
