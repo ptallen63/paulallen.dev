@@ -4,7 +4,7 @@ module.exports = {
     title: `PaulAllen.dev`,
     description: `Developer site for Paul Allen who is a Software Engineer that loves programing`,
     author: `@ptallen63`,
-    siteUrl: 'https://www.paultallen.dev'
+    siteUrl: 'https://paulallen.dev'
   },
   developMiddleware: app => {
     app.use(
