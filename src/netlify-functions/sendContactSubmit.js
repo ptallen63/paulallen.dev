@@ -53,7 +53,7 @@ exports.handler = function (event, context, callback) {
   instance.post('/send', {
     FromEmail: 'ptallen63@gmail.com',
     FromName: 'PaulAllen.dev',
-    Subject: 'New Message from AuctionPalmBeaches.com',
+    Subject: '📬New Message from paulallen.dev',
     'Html-part': emailText,
     Recipients: [
       {

@@ -206,8 +206,8 @@ export default class ContactModal extends Component {
           {form.submitted && (
             <Message success>
               <strong>Success!</strong>
-              Your message is on its way. Thank you for reaching out to
-              Auction Palm Beaches. We will respond as soon as we can.
+              Your message is on its way. Thank you for reaching out.
+              I will respond as soon as we can.
           </Message>
           )}
           {form.submitError && (
