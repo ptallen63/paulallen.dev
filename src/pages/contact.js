@@ -12,19 +12,17 @@ const PageWrapper = styled(Container)`
 const PageHeader = styled.h1`
   text-align: center;
   margin-bottom: 10px;
-`
+`;
 
-const ContactPage = (props) => {
-  return (
-    <Layout>
-      <SEO title="Contact" />
-      <Navbar {...props}/>
-      <PageWrapper>
-        <PageHeader>Contact Me</PageHeader>
-        <ContactForm/>
-      </PageWrapper>
-    </Layout>
-  );
-};
+const ContactPage = props => (
+  <Layout>
+    <SEO title="Contact" />
+    <Navbar {...props} />
+    <PageWrapper>
+      <PageHeader>Contact Me</PageHeader>
+      <ContactForm />
+    </PageWrapper>
+  </Layout>
+);
 
 export default ContactPage;

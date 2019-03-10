@@ -7,5 +7,5 @@ export default [
   "<span class='black'>Lover of bacon</span>",
   "<span class='black'>Email enthusiast</span>",
   "<span class='black'>I&apos;ve done a lot of interesting things</span>",
-  "<a class='black' href='projects'>Check some of them out <span class='grey'>>></span></a>"
-]
+  "<a class='black' href='projects'>Check some of them out <span class='grey'>>></span></a>",
+];

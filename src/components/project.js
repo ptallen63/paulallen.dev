@@ -1,16 +1,16 @@
-import React from "react";
+import React from 'react';
 import {
   Container,
   Header,
   Grid,
   Image,
   Label,
-  Segment
-} from "semantic-ui-react";
+  Segment,
+} from 'semantic-ui-react';
 import Link from 'gatsby-link';
-import moment from "moment";
+import moment from 'moment';
 import styled from 'styled-components';
-import { getTypeData } from "../utils/helpers";
+import { getTypeData } from '../utils/helpers';
 
 const ProjectBody = styled.div`
   padding: 20px;
@@ -36,41 +36,49 @@ const ProjectCard = styled(Segment)`
 
 const Date = styled.span``;
 
-const Project = props => {
+const Project = (props) => {
   const { project } = props;
   const tags = [];
-  project.frontmatter.tags.map((tag, i) =>
-    tags.push(
-      <Label tag size="mini" key={i}>
-        {tag}
-      </Label>
-    )
+  project.frontmatter.tags.map((tag, i) => tags.push(
+    <Label tag size="mini" key={i}>
+      {tag}
+    </Label>,
+  ));
+
+  return (
+    <Grid.Column largeScreen={5} tablet={8} mobile={8}>
+      <Link to={project.frontmatter.path}>
+        <ProjectCard key={props.id}>
+          <Image
+            fluid
+            label={{
+              color: getTypeData(project.frontmatter.type).color, content: project.frontmatter.type, icon: getTypeData(project.frontmatter.type).icon, ribbon: true,
+            }}
+            className="project-image"
+            centered
+            src={project.frontmatter.frontImage}
+          />
+
+          <ProjectBody>
+            <Header textAlign="center">
+              {project.frontmatter.title}
+              <Header.Subheader>
+                <Date>
+                  {moment(project.frontmatter.dateCompleted).format('MMM YYYY')}
+                </Date>
+              </Header.Subheader>
+              <Header.Subheader>
+                {project.frontmatter.shortDescription}
+              </Header.Subheader>
+            </Header>
+            <Container textAlign="center">
+              <div>{tags}</div>
+            </Container>
+          </ProjectBody>
+        </ProjectCard>
+      </Link>
+    </Grid.Column>
   );
-
-  return <Grid.Column largeScreen={5} tablet={8} mobile={8}>
-    <Link to={project.frontmatter.path}>
-      <ProjectCard key={props.id}>
-        <Image fluid label={{ color: getTypeData(project.frontmatter.type).color, content: project.frontmatter.type, icon: getTypeData(project.frontmatter.type).icon, ribbon: true }} className="project-image" centered src={project.frontmatter.frontImage} />
-
-        <ProjectBody>
-          <Header textAlign="center">
-            {project.frontmatter.title}
-            <Header.Subheader>
-              <Date>
-                {moment(project.frontmatter.dateCompleted).format("MMM YYYY")}
-              </Date>
-            </Header.Subheader>
-            <Header.Subheader>
-              {project.frontmatter.shortDescription}
-            </Header.Subheader>
-          </Header>
-          <Container textAlign="center">
-            <div>{tags}</div>
-          </Container>
-        </ProjectBody>
-      </ProjectCard>
-    </Link>
-  </Grid.Column>;
 };
 
 Project.propTypes = {

@@ -4,16 +4,15 @@ import { Header } from 'semantic-ui-react';
 import Typed from 'typed.js';
 import PropTypes from 'prop-types';
 
-import '../styles/typed.scss'
+import '../styles/typed.scss';
 
 const Keywords = styled(Header)`
     margin-top: -5px !important;
     margin-bottom: 55px !important;
-`
+`;
 
 
 class TypedComponent extends Component {
-
   componentDidMount() {
     // const strings = homepageTypedText
     const options = {
@@ -28,9 +27,10 @@ class TypedComponent extends Component {
   componentWillUnmount() {
     this.typed.destroy();
   }
+
   render() {
     return (
-      <Keywords textAlign='center' color="grey" as="h2">
+      <Keywords textAlign="center" color="grey" as="h2">
         <span
           style={{ whiteSpace: 'pre', fontSize: '28px' }}
           ref={(el) => { this.el = el; }}
@@ -41,7 +41,7 @@ class TypedComponent extends Component {
 }
 
 Typed.propTypes = {
-  strings: PropTypes.array.isRequired
+  strings: PropTypes.array.isRequired,
 };
 
 export default TypedComponent;

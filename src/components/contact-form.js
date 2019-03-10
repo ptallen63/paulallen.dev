@@ -12,7 +12,6 @@ import sanitize from 'utils/sanitize';
 import packageUp from 'utils/package-up';
 
 
-
 const Wrapper = styled.div`
   position: relative;
   background: white;
@@ -136,89 +135,89 @@ export default class ContactModal extends Component {
   }
 
   render() {
-    const {form} = this.state;
+    const { form } = this.state;
     return (
-        <Wrapper>
-          <p>
+      <Wrapper>
+        <p>
             Please complete this form with your name and email, and I will
             get back to you as soon as possible. I usually try to respond
             within 1-2 business days, but depending on volume it may be
             longer.
-          </p>
-          {!form.submitted && (
-            <Form noValidate loading={form.loading} onSubmit={this.handleSubmit}>
-              <Form.Group widths="equal">
-                <Form.Field required error={form.data.firstName.error !== false}>
-                  <label htmlFor="firstName">First Name</label>
-                  <Input onChange={this.handleInput} value={form.data.firstName.value} id="firstName" placeholder="First Name" />
-                  {form.data.firstName.error && (
-                    <ErrorMessage>
-                      {form.data.firstName.error}
-                      {' '}
-                    </ErrorMessage>
-                  )}
-                </Form.Field>
-                <Form.Field required error={form.data.lastName.error !== false}>
-                  <label htmlFor="lastName">Last Name</label>
-                  <Input onChange={this.handleInput} value={form.data.lastName.value} id="lastName" placeholder="Last Name" />
-                  {form.data.lastName.error && (
-                    <ErrorMessage>
-                      {form.data.lastName.error}
-                      {' '}
-                    </ErrorMessage>
-                  )}
-                </Form.Field>
-              </Form.Group>
+        </p>
+        {!form.submitted && (
+        <Form noValidate loading={form.loading} onSubmit={this.handleSubmit}>
+          <Form.Group widths="equal">
+            <Form.Field required error={form.data.firstName.error !== false}>
+              <label htmlFor="firstName">First Name</label>
+              <Input onChange={this.handleInput} value={form.data.firstName.value} id="firstName" placeholder="First Name" />
+              {form.data.firstName.error && (
+              <ErrorMessage>
+                {form.data.firstName.error}
+                {' '}
+              </ErrorMessage>
+              )}
+            </Form.Field>
+            <Form.Field required error={form.data.lastName.error !== false}>
+              <label htmlFor="lastName">Last Name</label>
+              <Input onChange={this.handleInput} value={form.data.lastName.value} id="lastName" placeholder="Last Name" />
+              {form.data.lastName.error && (
+              <ErrorMessage>
+                {form.data.lastName.error}
+                {' '}
+              </ErrorMessage>
+              )}
+            </Form.Field>
+          </Form.Group>
 
-              <Form.Group widths="equal">
-                <Form.Field required error={form.data.email.error !== false}>
-                  <label htmlFor="email">Email</label>
-                  <Input type="email" onChange={this.handleInput} value={form.data.email.value} id="email" placeholder="Email Address" />
-                  {form.data.email.error && (
-                    <ErrorMessage>
-                      {form.data.email.error}
-                      {' '}
-                    </ErrorMessage>
-                  )}
-                </Form.Field>
-                <Form.Field error={form.data.phone.error !== false}>
-                  <label htmlFor="phone">Phone</label>
-                  <Input type="tel" onChange={this.handleInput} value={form.data.phone.value} id="phone" placeholder="Phone Number" />
-                  {form.data.phone.error && (
-                    <ErrorMessage>
-                      {form.data.phone.error}
-                    </ErrorMessage>
-                  )}
-                </Form.Field>
-              </Form.Group>
-              <Form.Field required error={form.data.message.error !== false}>
-                <label htmlFor="message">Message</label>
-                <TextArea onChange={this.handleInput} value={form.data.message.value} id="message" placeholder="Enter your message" />
-                {form.data.message.error && (
-                  <ErrorMessage>
-                    {form.data.message.error}
-                  </ErrorMessage>
-                )}
-              </Form.Field>
-              <Form.Field id="form-button-control-public" control={SubmitButton} content="Send" />
-            </Form>
-          )}
-          {form.submitted && (
-            <Message success>
-              <strong>Success!</strong>
+          <Form.Group widths="equal">
+            <Form.Field required error={form.data.email.error !== false}>
+              <label htmlFor="email">Email</label>
+              <Input type="email" onChange={this.handleInput} value={form.data.email.value} id="email" placeholder="Email Address" />
+              {form.data.email.error && (
+              <ErrorMessage>
+                {form.data.email.error}
+                {' '}
+              </ErrorMessage>
+              )}
+            </Form.Field>
+            <Form.Field error={form.data.phone.error !== false}>
+              <label htmlFor="phone">Phone</label>
+              <Input type="tel" onChange={this.handleInput} value={form.data.phone.value} id="phone" placeholder="Phone Number" />
+              {form.data.phone.error && (
+              <ErrorMessage>
+                {form.data.phone.error}
+              </ErrorMessage>
+              )}
+            </Form.Field>
+          </Form.Group>
+          <Form.Field required error={form.data.message.error !== false}>
+            <label htmlFor="message">Message</label>
+            <TextArea onChange={this.handleInput} value={form.data.message.value} id="message" placeholder="Enter your message" />
+            {form.data.message.error && (
+            <ErrorMessage>
+              {form.data.message.error}
+            </ErrorMessage>
+            )}
+          </Form.Field>
+          <Form.Field id="form-button-control-public" control={SubmitButton} content="Send" />
+        </Form>
+        )}
+        {form.submitted && (
+        <Message success>
+          <strong>Success!</strong>
               Your message is on its way. Thank you for reaching out.
               I will respond as soon as we can.
-          </Message>
-          )}
-          {form.submitError && (
-            <Message error>
-              <strong>Uh-oh!</strong>
-              {' '}
+        </Message>
+        )}
+        {form.submitError && (
+        <Message error>
+          <strong>Uh-oh!</strong>
+          {' '}
               Something went wrong! Please try again.
-            {' '}
-            </Message>
-          )}
-        </Wrapper>
+          {' '}
+        </Message>
+        )}
+      </Wrapper>
     );
   }
 }

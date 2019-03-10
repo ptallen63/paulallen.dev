@@ -1,14 +1,14 @@
-import React from "react";
-import { Container, Header, Grid } from "semantic-ui-react";
+import React from 'react';
+import { Container, Header, Grid } from 'semantic-ui-react';
+import styled from 'styled-components';
+import { graphql } from 'gatsby';
 import Layout from '../../components/layout';
 import SEO from '../../components/seo';
-import styled from 'styled-components';
-import { graphql } from 'gatsby'
 
-import Navbar from "../../components/navbar";
+import Navbar from '../../components/navbar';
 import ProjectBannerImg from '../../images/projectsBanner.png';
 // import "../../styles/projects.scss";
-import Project from "../../components/project";
+import Project from '../../components/project';
 
 const Banner = styled.div`
   height: 50vh ;
@@ -42,34 +42,34 @@ const Projects = styled.div`
 `;
 
 const ProjectsPage = (props) => {
-
-  const { edges } = props.data.allMarkdownRemark
-  const projects = edges.map(({ node: project }) => {
-    return <Project
+  const { edges } = props.data.allMarkdownRemark;
+  const projects = edges.map(({ node: project }) => (
+    <Project
       index={project.id}
       project={project}
       key={project.id}
     />
+  ));
+  return (
+    <Layout>
+      <SEO title="Projects" />
+      <Navbar {...props} />
 
-  });
-  return <Layout>
-    <SEO title="Projects" />
-    <Navbar {...props} />
-
-    <Banner>
-      <ProjectPageHeader as="h1" textAlign="center">
-        <BannerText>Projects</BannerText>
-      </ProjectPageHeader>
-    </Banner>
-    <Projects>
-      <Container>
-        <Grid stackable stretched centered>
-          {projects}
-        </Grid>
-      </Container>
-    </Projects>
-  </Layout>;
-}
+      <Banner>
+        <ProjectPageHeader as="h1" textAlign="center">
+          <BannerText>Projects</BannerText>
+        </ProjectPageHeader>
+      </Banner>
+      <Projects>
+        <Container>
+          <Grid stackable stretched centered>
+            {projects}
+          </Grid>
+        </Container>
+      </Projects>
+    </Layout>
+  );
+};
 
 export default ProjectsPage;
 
@@ -95,4 +95,4 @@ export const projectQuery = graphql`
           }
         }
       }
-    }`
+    }`;

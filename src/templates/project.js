@@ -1,20 +1,22 @@
-import React from "react";
+import React from 'react';
 import Link from 'gatsby-link';
-import styled from 'styled-components'
-import moment from "moment";
-import { graphql } from 'gatsby'
-import { Container, Image, Header, Label, Icon } from "semantic-ui-react";
+import styled from 'styled-components';
+import moment from 'moment';
+import { graphql } from 'gatsby';
+import {
+  Container, Image, Header, Label, Icon,
+} from 'semantic-ui-react';
+import Slider from 'react-slick';
 import { getTypeData, getStatusColor } from '../utils/helpers';
 import Navbar from '../components/navbar';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
 // Carosel neeed styles
-import Slider from 'react-slick';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
-var settings = {
+const settings = {
   infinite: true,
   speed: 750,
   slidesToShow: 1,
@@ -58,37 +60,53 @@ export default function Template(props) {
   const { markdownRemark: project } = props.data;
 
   const images = project.frontmatter.images.map((image, i) => <div key={i}><Screenshot centered src={image} /></div>);
-  const tags = project.frontmatter.tags.map((tag, i) => <Label tag size="mini" key={i}> {tag} </Label>);
+  const tags = project.frontmatter.tags.map((tag, i) => (
+    <Label tag size="mini" key={i}>
+      {' '}
+      {tag}
+      {' '}
+    </Label>
+  ));
 
-  return <Layout>
-    <SEO title={`${project.frontmatter.title}`} />
-    <Navbar {...props} />
+  return (
+    <Layout>
+      <SEO title={`${project.frontmatter.title}`} />
+      <Navbar {...props} />
 
-    <HeroImage> <Slider {...settings}>{images}</Slider> </HeroImage>
-    <MainContent>
-      <BackToProjectsLink to='/projects'> <Icon name='arrow circle left' />back to projects</BackToProjectsLink>
-      <ProjectHeader as="h1">
-        {project.frontmatter.title}
-        <SiteLink href={project.frontmatter.url}>
-          {" "}
-          <Icon name="arrow circle right" />
-        </SiteLink>
-        <ProjectSubHeader>
-          {moment(project.frontmatter.date).format("MMM Do YYYY")}
-          <Label size="mini" color={getTypeData(project.frontmatter.type).color}>
-            <Icon name={getTypeData(project.frontmatter.type).icon} />
-            {project.frontmatter.type}
-          </Label>
-          <Label size="mini" color={getStatusColor(project.frontmatter.status)}>
-            {project.frontmatter.status}
-          </Label>
-        </ProjectSubHeader>
-      </ProjectHeader>
-      <Header>{tags}</Header>
+      <HeroImage>
+        {' '}
+        <Slider {...settings}>{images}</Slider>
+        {' '}
+      </HeroImage>
+      <MainContent>
+        <BackToProjectsLink to="/projects">
+          {' '}
+          <Icon name="arrow circle left" />
+back to projects
+        </BackToProjectsLink>
+        <ProjectHeader as="h1">
+          {project.frontmatter.title}
+          <SiteLink href={project.frontmatter.url}>
+            {' '}
+            <Icon name="arrow circle right" />
+          </SiteLink>
+          <ProjectSubHeader>
+            {moment(project.frontmatter.date).format('MMM Do YYYY')}
+            <Label size="mini" color={getTypeData(project.frontmatter.type).color}>
+              <Icon name={getTypeData(project.frontmatter.type).icon} />
+              {project.frontmatter.type}
+            </Label>
+            <Label size="mini" color={getStatusColor(project.frontmatter.status)}>
+              {project.frontmatter.status}
+            </Label>
+          </ProjectSubHeader>
+        </ProjectHeader>
+        <Header>{tags}</Header>
 
-      <ProjectHTML dangerouslySetInnerHTML={{ __html: project.html }} />
-    </MainContent>
-  </Layout>;
+        <ProjectHTML dangerouslySetInnerHTML={{ __html: project.html }} />
+      </MainContent>
+    </Layout>
+  );
 }
 
 export const projectQuery = graphql`query ProjectPostByPath($path: String!) {
