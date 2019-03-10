@@ -2,7 +2,7 @@ var proxy = require("http-proxy-middleware")
 module.exports = {
   siteMetadata: {
     title: `PaulAllen.dev`,
-    description: `Developer site for Paul Allen who is a Software Engineer that loves programing`,
+    description: `The developer site for Paul Allen of Columbia, SC.  I am a Software Engineer that loves programing and all things tech.`,
     author: `@ptallen63`,
     siteUrl: 'https://paulallen.dev'
   },
