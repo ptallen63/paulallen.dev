@@ -52,7 +52,7 @@ const socialLinks = [
 ]
 
 const sections = [
-  {name: 'Projects', link: 'proejcts', icon: 'code'},
+  {name: 'Projects', link: 'projects', icon: 'code'},
   {name: 'About Me', link: 'about', icon: 'info'},
   {name: 'Resume', link: 'resume', icon: 'file text'},
   {name: 'Contact Me', link: 'contact', icon: 'mail outline'},
