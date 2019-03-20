@@ -68,7 +68,7 @@ const sections = [
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Paulallen.dev" keywords={['gatsby', 'application', 'react']} />
+    <SEO title="Developer" keywords={['gatsby', 'application', 'react']} />
     <Wrapper>
       <Container textAlign="center">
         <Grid reversed="mobile" columns={2} stackable centered>
