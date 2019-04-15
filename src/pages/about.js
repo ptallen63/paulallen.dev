@@ -6,12 +6,20 @@ import styled from 'styled-components';
 import Navbar from '../components/navbar';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
+import theme from '../styles/theme';
 
 
 const ButtonGroup = styled.div`
   padding-top: 20px;
 `;
 const Header = styled.h1``;
+
+const P = styled.p`
+  font-size: 18px;
+  ${theme.breakpoints.mobile}{
+    font-size: 22px;
+  }
+`
 
 const AboutPage = props => (
   <Layout>
@@ -43,7 +51,7 @@ const AboutPage = props => (
         </Grid.Column>
         <Grid.Column width={12}>
           <Container textAlign="left">
-            <p>
+            <P>
                 My path has been a bit different than most. I grew up in
                 Alabama where I went to school for finance and banking. My
                     first career was at
@@ -56,9 +64,9 @@ const AboutPage = props => (
                 customer service ratings and developing spreadsheet models to
                 increase efficiencies and branch sales.
               {' '}
-            </p>
+            </P>
 
-            <p>
+            <P>
                 While on vacation in Egypt, I was recruited to move overseas
                 and do consulting work in the Middle East. Primarily working
                 in Egypt, I engaged with small companies who wanted to expand
@@ -69,9 +77,9 @@ const AboutPage = props => (
               {' '}
 began, and I learned how to operate in an
                 environment that changed daily.
-            </p>
+            </P>
 
-            <p>
+            <P>
                 Just before leaving for Egypt, I met the woman who is now my
                 wife. It was wanting to marry her that brought me to my
                 current location in Columbia, SC in
@@ -83,9 +91,9 @@ began, and I learned how to operate in an
                 enjoyed working in this field and that I was a natural at
                 building processes and systems to reach this student
                 population.
-            </p>
+            </P>
 
-            <p>
+            <P>
                 In
               {' '}
               <strong>2013</strong>
@@ -104,9 +112,9 @@ began, and I learned how to operate in an
                 communicated with prospective students. I was able to design
                 and implement our communications model that led to higher
                 efficiency in recruiting students.
-            </p>
+            </P>
 
-            <p>
+            <P>
                 In
               {' '}
               <strong>August of 2016</strong>
@@ -114,8 +122,8 @@ began, and I learned how to operate in an
                 entire university. In this role, I focused on finding technology
                 solutions to the challenges facing our marketing and
                 communications groups.
-            </p>
-            <p>
+            </P>
+            <P>
                 In
               {' '}
               <strong>February of 2018</strong>
@@ -124,16 +132,16 @@ began, and I learned how to operate in an
               {' '}
               <a href="www.redventures.com">Red Ventures</a>
 .
-            </p>
-            <p>
+            </P>
+            <P>
                 In my free time, I am obsessed with programming. I
                 spend a lot of time building apps to make life more fun. I
                 also really enjoy building products to help my wife in her
                 classroom. I am constantly learning more about different
                 programming languages.
-            </p>
+            </P>
 
-            <p>
+            <P>
                 I also enjoy spending time with my wife, learning how to dance
                 the
               {' '}
@@ -142,7 +150,7 @@ began, and I learned how to operate in an
                   Carolina shag
               </a>
 , running, and traveling.
-            </p>
+            </P>
           </Container>
         </Grid.Column>
       </Grid>
