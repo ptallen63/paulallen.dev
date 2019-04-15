@@ -80,7 +80,7 @@ const IndexPage = () => (
             <Typed strings={homepageTypedText} />
 
             {socialLinks.map(link => (
-              <a target="_blank" rel="noopener noreferrer" href={link.link}>
+              <a key={link.link} target="_blank" rel="noopener noreferrer" href={link.link}>
                 <Button animated="fade" color={link.color} size="large">
                   <Button.Content visible>
                     <Icon name={link.icon} />
@@ -96,7 +96,7 @@ const IndexPage = () => (
             <Grid columns={4} stackable centered>
               {sections.map(section => (
 
-                <Grid.Column textAlign="center">
+                <Grid.Column key={`${section.name}-${section.link}`} textAlign="center">
                   <Link to={section.link}>
                     <SectionLinks>
                       <SectionIcons>
