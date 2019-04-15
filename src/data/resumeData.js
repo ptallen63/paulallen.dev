@@ -139,9 +139,9 @@ export const skills = [
   'Advanced knowledge in Microsoft Excel',
   'Significant knowledge of CRM software such as Salesforce, Jenzabar EX, and Hobsons Connect',
   'Excellent analytical and critical thinking skills',
-  'Programming languages: PHP, Javascript / jQuery, HTML, CSS, and SQL',
+  'Programming languages: PHP, Javascript, HTML, CSS, and SQL',
   'Operating Systems: IOS, OSX, Android, Linux, and Windows',
-  'Other: React, ajax, angular.js, MVC, NodeJS',
+  'Other: React, Vue, ajax, angular.js, MVC, NodeJS',
 ];
 
 export const honors = [
