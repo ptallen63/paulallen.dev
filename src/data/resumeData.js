@@ -19,7 +19,7 @@ export const workItems = [
     position: 'Senior Engineer | Engineering Manager',
     timeSpan: 'February 2019 - Present',
     bullets: [
-      'Lead a team  of developers using technologies like ReactJS, VueJS, and other JS libraries to build frontend solutions',
+      'Lead several teams of developers using technologies like ReactJS, VueJS, and other JS libraries to build frontend solutions',
     ],
   },
   {
