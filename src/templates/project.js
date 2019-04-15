@@ -52,6 +52,10 @@ const SiteLink = styled.a`
 
 const ProjectHeader = styled(Header)``;
 const ProjectSubHeader = styled(Header.Subheader)``;
+const ProjectDate = styled.span`
+  font-weight: 100;
+  font-size: 16px;
+`
 
 const BackToProjectsLink = styled(Link)``;
 const ProjectHTML = styled.div``;
@@ -92,7 +96,10 @@ back to projects
             <Icon name="arrow circle right" />
           </SiteLink>
           <ProjectSubHeader>
-            {moment(project.frontmatter.dateCompleted).format('MMM Do YYYY')}
+            <ProjectDate>
+              {moment(project.frontmatter.dateCompleted).format('MMM Do YYYY')}
+              <br/>
+            </ProjectDate>
             <Label size="mini" color={getTypeData(project.frontmatter.type).color}>
               <Icon name={getTypeData(project.frontmatter.type).icon} />
               {project.frontmatter.type}
