@@ -6,9 +6,9 @@ status: 'Active'
 shortDescription: 'A React app that shows a grade table based on the number of questions on a quiz, test, or exam'
 tags: ['React', 'ExpressJS', 'NodeJS', 'JavaScript']
 images: [
-      'https://s3.amazonaws.com/gradecalculate/images/Screen+Shot+2017-11-07+at+10.54.16+AM.png',
-      'https://s3.amazonaws.com/gradecalculate/images/Screen+Shot+2017-11-07+at+10.54.32+AM.png',
-      'https://s3.amazonaws.com/gradecalculate/images/Screen+Shot+2017-11-07+at+10.54.42+AM.png',
+      'https://static.paulallen.dev/images/gradecalculate/Screen+Shot+2017-11-07+at+10.54.16+AM.png',
+      'https://static.paulallen.dev/images/gradecalculate/Screen+Shot+2017-11-07+at+10.54.32+AM.png',
+      'https://static.paulallen.dev/images/gradecalculate/Screen+Shot+2017-11-07+at+10.54.42+AM.png',
     ]
 client: 'Muller Avenue Group'
 forClient: false

@@ -6,9 +6,9 @@ status: 'Active'
 shortDescription: 'Mobile App for Grade Calculate'
 tags: ['Javascript', 'Ionic', 'iOS']
 images: [
-      'https://s3.amazonaws.com/gradecalculate/images/IMG_1233.PNG',
-      'https://s3.amazonaws.com/gradecalculate/images/IMG_1235.PNG',
-      'https://s3.amazonaws.com/gradecalculate/images/IMG_1234.PNG',
+      'https://static.paulallen.dev/images/gradecalculate/IMG_1233.PNG',
+      'https://static.paulallen.dev/images/gradecalculate/IMG_1235.PNG',
+      'https://static.paulallen.dev/images/gradecalculate/IMG_1234.PNG',
     ]
 
 url: 'https://itunes.apple.com/us/app/grade-calculate/id1121430103?mt=8'
