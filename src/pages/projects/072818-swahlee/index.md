@@ -6,17 +6,17 @@ status: 'Active'
 shortDescription: 'A web presence for an ethical fashion clothing company'
 tags: ['ReactJS', 'GatsbyJS', 'JavaScript']
 images: [
-      'https://s3-us-west-2.amazonaws.com/paultallen.com/Images/swahlee1.png',
-      'https://s3-us-west-2.amazonaws.com/paultallen.com/Images/swahlee2.png',
-      'https://s3-us-west-2.amazonaws.com/paultallen.com/Images/Swahlee3.png',
-      'https://s3-us-west-2.amazonaws.com/paultallen.com/Images/swahleeMobile1.png',
-      'https://s3-us-west-2.amazonaws.com/paultallen.com/Images/swahleeMobile2.png',
+      'https://static.paulallen.dev/images/paulallen.dev/swahlee1.png',
+      'https://static.paulallen.dev/images/paulallen.dev/swahlee2.png',
+      'https://static.paulallen.dev/images/paulallen.dev/Swahlee3.png',
+      'https://static.paulallen.dev/images/paulallen.dev/swahleeMobile1.png',
+      'https://static.paulallen.dev/images/paulallen.dev/swahleeMobile2.png',
     ]
 
 url: 'https://www.swahlee.com'
 type: 'Website'
 cover: ''
-frontImage: 'https://s3-us-west-2.amazonaws.com/paultallen.com/Images/social.png'
+frontImage: 'https://static.paulallen.dev/images/paulallen.dev/social.png'
 show: true
 ---
 

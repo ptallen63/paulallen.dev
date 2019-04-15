@@ -6,14 +6,14 @@ status: 'Archive'
 shortDescription: 'A proof of concept habit tracking app'
 tags: ['PHP', 'Angular 1.x', 'CodeIgnighter', 'HTML5']
 images: [
-      'https://s3-us-west-2.amazonaws.com/paultallen.com/Images/streakbit+screenshot+1.png',
-      'https://s3-us-west-2.amazonaws.com/paultallen.com/Images/Streakbit+Screenshot+2.png',
-      'https://s3-us-west-2.amazonaws.com/paultallen.com/Images/Streakbit+Screenshot+2.png',
+      'https://static.paulallen.dev/images/paulallen.dev/streakbit+screenshot+1.png',
+      'https://static.paulallen.dev/images/paulallen.dev/Streakbit+Screenshot+2.png',
+      'https://static.paulallen.dev/images/paulallen.dev/Streakbit+Screenshot+2.png',
     ]
 url: 'http://beta.streakbit.com'
 type: 'Webapp'
 cover: ''
-frontImage: 'https://s3-us-west-2.amazonaws.com/paultallen.com/Images/Streakbit+Cover.png'
+frontImage: 'https://static.paulallen.dev/images/paulallen.dev/Streakbit+Cover.png'
 show: true
 ---
 

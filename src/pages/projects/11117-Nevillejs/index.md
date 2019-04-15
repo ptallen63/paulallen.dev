@@ -6,7 +6,7 @@ status: 'Development'
 shortDescription: 'A NodeJS CLI that cleans email lists of duplicates and invalid email addresses'
 tags: ['CLI', 'JavaScript', 'Email']
 images: [
-      'https://s3-us-west-2.amazonaws.com/nevillejs/Oct-07-2016+10-32-33.gif',
+      'https://static.paulallen.dev/images/nevillejs/Oct-07-2016+10-32-33.gif',
     ]
 
 url: 'https://github.com/ptallen63/neville.js'

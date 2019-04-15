@@ -6,18 +6,18 @@ status: 'Archive'
 shortDescription: 'Class website for my U101 section'
 tags: ['Javascript', 'Angular 1.x', 'MongoDB', 'ExpressJS']
 images: [
-      'https://s3-us-west-2.amazonaws.com/paultallen.com/Images/u1011.png',
-      'https://s3-us-west-2.amazonaws.com/paultallen.com/Images/u1013.png',
-      'https://s3-us-west-2.amazonaws.com/paultallen.com/Images/u1014.png',
-      'https://s3-us-west-2.amazonaws.com/paultallen.com/Images/u1015.png',
-      'https://s3-us-west-2.amazonaws.com/paultallen.com/Images/u1016.png',
-      'https://s3-us-west-2.amazonaws.com/paultallen.com/Images/u1017.png',
+      'https://static.paulallen.dev/images/paulallen.dev/u1011.png',
+      'https://static.paulallen.dev/images/paulallen.dev/u1013.png',
+      'https://static.paulallen.dev/images/paulallen.dev/u1014.png',
+      'https://static.paulallen.dev/images/paulallen.dev/u1015.png',
+      'https://static.paulallen.dev/images/paulallen.dev/u1016.png',
+      'https://static.paulallen.dev/images/paulallen.dev/u1017.png',
     ]
 
 url: 'http://131.univ101.com'
 type: 'Website'
 cover: ''
-frontImage: 'https://s3-us-west-2.amazonaws.com/paultallen.com/Images/u101+site+cover.png'
+frontImage: 'https://static.paulallen.dev/images/paulallen.dev/u101+site+cover.png'
 show: true
 ---
 
