@@ -14,7 +14,6 @@ const ButtonGroup = styled.div`
 const Header = styled.h1``;
 
 
-
 const AboutPage = props => (
   <Layout>
     <SEO title="About" keywords={['Paul Allen', 'Web Development']} />
