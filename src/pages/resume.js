@@ -149,8 +149,8 @@ const ResumePage = (props) => {
               {' '}
               <Icon name="world" />
 Web:
-              <a href="https://paultall.com">
-              www.paultallen.com
+              <a href="https://paulallen.dev">
+              paulallen.dev
                 {' '}
               </a>
             </Header.Subheader>
