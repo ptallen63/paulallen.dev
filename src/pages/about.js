@@ -15,7 +15,7 @@ const Header = styled.h1``;
 
 const AboutPage = props => (
   <Layout>
-    <SEO title="About | Paulallen.dev.com" keywords={['Paul Allen', 'Web Development']} />
+    <SEO title="About" keywords={['Paul Allen', 'Web Development']} />
     <Navbar {...props} />
     <Container textAlign="center">
       <Header>About</Header>
