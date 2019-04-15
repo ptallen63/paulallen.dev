@@ -14,7 +14,7 @@ images: [
       'https://static.paulallen.dev/images/paulallen.dev/pmena6.png',
     ]
 
-url: 'https://pmena-production.herokuapp.com/'
+url: 'https://thirsty-shirley-a20dfd.netlify.com/'
 type: 'Website'
 cover: ''
 frontImage: 'https://static.paulallen.dev/images/paulallen.dev/pmena-logo3.png'
