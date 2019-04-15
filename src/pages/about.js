@@ -6,20 +6,14 @@ import styled from 'styled-components';
 import Navbar from '../components/navbar';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import theme from '../styles/theme';
-
+import { P } from '../components/styled';
 
 const ButtonGroup = styled.div`
   padding-top: 20px;
 `;
 const Header = styled.h1``;
 
-const P = styled.p`
-  font-size: 18px;
-  ${theme.breakpoints.mobile}{
-    font-size: 22px;
-  }
-`
+
 
 const AboutPage = props => (
   <Layout>
