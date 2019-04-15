@@ -141,8 +141,8 @@ const ResumePage = (props) => {
               <Icon name="mail" />
             email:
               {' '}
-              <a href="mailto:contact@mulleravenue.com">
-              contact@mulleravenue.com
+              <a href="mailto:ptallen63@gmail.com">
+              ptallen63@gmail.com
               </a>
             </Header.Subheader>
             <Header.Subheader>
