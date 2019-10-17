@@ -7,7 +7,7 @@ sections:
 - type: document
   path: src/pages/index.js
   label: Home
-  match: "**/*"
+  read_only: true
 - type: directory
   path: ''
   label: Projects
