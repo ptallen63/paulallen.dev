@@ -4,15 +4,15 @@ auto_deploy: false
 admin_path: 
 webhook_url: 
 sections:
-- type: document
-  path: src/pages/index.js
-  label: Home
-  read_only: true
 - type: directory
   path: ''
   label: Projects
   create: all
   match: "/src/pages/projects/**/*"
+- type: document
+  path: src/pages/index.js
+  label: Home
+  read_only: true
 upload_dir: uploads
 public_path: "/uploads"
 front_matter_path: ''
