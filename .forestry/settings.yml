@@ -5,10 +5,15 @@ admin_path:
 webhook_url: 
 sections:
 - type: directory
-  path: ''
+  path: src/pages
+  label: Pages
+  create: all
+  match: "**/*"
+- type: directory
+  path: src/pages/projects
   label: Projects
   create: all
-  match: "/src/pages/projects/**/*"
+  match: "**/*"
 - type: document
   path: src/pages/index.js
   label: Home
