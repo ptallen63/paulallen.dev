@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'gatsby-link';
 import styled from 'styled-components';
 import moment from 'moment';
-import { MDXRenderer } from 'gatsby-plugin-mdx'
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 
 import { graphql } from 'gatsby';
 import {
