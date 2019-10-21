@@ -42,7 +42,7 @@ const Projects = styled.div`
 `;
 
 const ProjectsPage = (props) => {
-  const { edges } = props.data.allMarkdownRemark; // eslint-disable-line
+  const { edges } = props.data.allMdx; // eslint-disable-line
   const projects = edges.map(({ node: project }) => (
     <Project
       index={project.id}
@@ -75,10 +75,10 @@ export default ProjectsPage;
 
 export const projectQuery = graphql`
   query allProjectsQuery {
-    allMarkdownRemark {
+    allMdx {
         edges {
           node {
-            html
+            body
             id
             frontmatter {
               path

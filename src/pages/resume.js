@@ -66,7 +66,7 @@ const Technologies = styled.div`
 
 const ResumePage = (props) => {
   // eslint-disable-next-line
-  const renderProjects = props.data.allMarkdownRemark.edges.map(({ node: project }) => (
+  const renderProjects = props.data.allMdx.edges.map(({ node: project }) => (
     <Project key={project.id}>
       <ProjectIcon name={getTypeData(project.frontmatter.type).icon} />
       <ProjectContent>
@@ -250,7 +250,7 @@ export default ResumePage;
 
 export const projectQuery = graphql`
   query resumeProjectQuery {
-    allMarkdownRemark {
+    allMdx {
       edges {
         node {
           id

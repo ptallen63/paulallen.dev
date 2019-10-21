@@ -22,7 +22,7 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-netlify`,
     `gatsby-plugin-styled-components`,
-    `gatsby-transformer-remark`,
+    // `gatsby-transformer-remark`,
     {
       resolve: `gatsby-plugin-favicon`,
       options: {
@@ -69,6 +69,12 @@ module.exports = {
         path: `${__dirname}/src/pages/projects`,
         name: `projects`
       }
+    },
+    {
+      resolve: 'gatsby-plugin-mdx',
+      options: {
+        extensions: [`.mdx`, `.md`],
+      },
     },
     {
       resolve: `gatsby-plugin-sitemap`

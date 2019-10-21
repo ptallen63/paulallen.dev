@@ -10,21 +10,22 @@ const path = require("path");
 exports.onCreateWebpackConfig = ({ stage, actions }) => {
   actions.setWebpackConfig({
     resolve: {
-      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+      modules: [
+        path.resolve(__dirname, 'src'), 'node_modules'],
     },
   })
 }
 
-exports.createPages = ({ boundActionCreators, graphql }) => {
-  const { createPage } = boundActionCreators;
+exports.createPages = ({ actions, graphql }) => {
+  const { createPage } = actions;
 
   const projectTemplate = path.resolve("src/templates/project.js");
 
   return graphql(`{
-      allMarkdownRemark {
+      allMdx {
         edges {
           node {
-            html
+            body
             id
             frontmatter {
               path
@@ -46,7 +47,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
       return Promise.reject(res.errors);
     }
 
-    res.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    res.data.allMdx.edges.forEach(({ node }) => {
       createPage({ path: node.frontmatter.path, component: projectTemplate });
     });
   });
