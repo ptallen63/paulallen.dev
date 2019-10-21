@@ -2,6 +2,8 @@ import React from 'react';
 import Link from 'gatsby-link';
 import styled from 'styled-components';
 import moment from 'moment';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
+
 import { graphql } from 'gatsby';
 import {
   Container, Image, Header, Label, Icon,
@@ -62,7 +64,7 @@ const ProjectHTML = styled.div``;
 
 export default function Template(props) {
   // eslint-disable-next-line
-  const { markdownRemark: project } = props.data;
+  const { mdx: project } = props.data;
 
   const images = project.frontmatter.images.map((image, i) => <div key={i}><Screenshot centered src={image} /></div>);
   const tags = project.frontmatter.tags.map((tag, i) => (
@@ -111,15 +113,18 @@ back to projects
         </ProjectHeader>
         <Header>{tags}</Header>
 
-        <ProjectHTML dangerouslySetInnerHTML={{ __html: project.html }} />
+        <ProjectHTML>
+          <MDXRenderer>{project.body}</MDXRenderer>
+
+        </ProjectHTML>
       </MainContent>
     </Layout>
   );
 }
 
 export const projectQuery = graphql`query ProjectPostByPath($path: String!) {
-           markdownRemark(frontmatter: { path: { eq: $path } }) {
-             html
+           mdx(frontmatter: { path: { eq: $path } }) {
+             body
              id
              frontmatter {
                path
