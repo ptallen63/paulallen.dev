@@ -1,0 +1,40 @@
+---
+label: Project
+hide_body: false
+fields:
+- type: text
+  name: title
+  label: title
+- type: text
+  name: path
+  label: path
+- type: datetime
+  name: dateCompleted
+  label: dateCompleted
+- type: text
+  name: status
+  label: status
+- type: text
+  name: shortDescription
+  label: shortDescription
+- type: list
+  name: tags
+  label: tags
+- type: list
+  name: images
+  label: images
+- type: text
+  name: url
+  label: url
+- type: text
+  name: type
+  label: type
+- type: text
+  name: cover
+  label: cover
+- type: file
+  name: frontImage
+  label: frontImage
+- type: boolean
+  name: show
+  label: show
