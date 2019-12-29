@@ -2,9 +2,6 @@ import React from 'react';
 import Link from 'gatsby-link';
 import styled from 'styled-components';
 import moment from 'moment';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
-
-import { graphql } from 'gatsby';
 import {
   Container, Image, Header, Label, Icon,
 } from 'semantic-ui-react';
@@ -64,10 +61,11 @@ const ProjectHTML = styled.div``;
 
 export default function Template(props) {
   // eslint-disable-next-line
-  const { mdx: project } = props.data;
+  const { pageContext: project } = props;
+  console.log({ project });
 
-  const images = project.frontmatter.images.map((image, i) => <div key={i}><Screenshot centered src={image} /></div>);
-  const tags = project.frontmatter.tags.map((tag, i) => (
+  const images = project.images.map((image, i) => <div key={i}><Screenshot centered src={image} /></div>);
+  const tags = project.tags.map((tag, i) => (
     <Label tag size="mini" key={i}>
       {' '}
       {tag}
@@ -77,7 +75,7 @@ export default function Template(props) {
 
   return (
     <Layout>
-      <SEO title={`${project.frontmatter.title}`} />
+      <SEO title={`${project.title}`} />
       <Navbar {...props} />
 
       <HeroImage>
@@ -92,52 +90,29 @@ export default function Template(props) {
 back to projects
         </BackToProjectsLink>
         <ProjectHeader as="h1">
-          {project.frontmatter.title}
-          <SiteLink href={project.frontmatter.url}>
+          {project.title}
+          <SiteLink href={project.appUrl}>
             {' '}
             <Icon name="arrow circle right" />
           </SiteLink>
           <ProjectSubHeader>
             <ProjectDate>
-              {moment(project.frontmatter.dateCompleted).format('MMM Do YYYY')}
+              {moment(project.dateCompleted).format('MMM Do YYYY')}
               <br />
             </ProjectDate>
-            <Label size="mini" color={getTypeData(project.frontmatter.type).color}>
-              <Icon name={getTypeData(project.frontmatter.type).icon} />
-              {project.frontmatter.type}
+            <Label size="mini" color={getTypeData(project.type).color}>
+              <Icon name={getTypeData(project.type).icon} />
+              {project.type}
             </Label>
-            <Label size="mini" color={getStatusColor(project.frontmatter.status)}>
-              {project.frontmatter.status}
+            <Label size="mini" color={getStatusColor(project.status)}>
+              {project.status}
             </Label>
           </ProjectSubHeader>
         </ProjectHeader>
         <Header>{tags}</Header>
 
-        <ProjectHTML>
-          <MDXRenderer>{project.body}</MDXRenderer>
-
-        </ProjectHTML>
+        <ProjectHTML dangerouslySetInnerHTML={{ __html: project.content }} />
       </MainContent>
     </Layout>
   );
 }
-
-export const projectQuery = graphql`query ProjectPostByPath($path: String!) {
-           mdx(frontmatter: { path: { eq: $path } }) {
-             body
-             id
-             frontmatter {
-               path
-               title
-               cover
-               frontImage
-               type
-               dateCompleted
-               shortDescription
-               images
-               tags
-               url
-               status
-             }
-           }
-         }`;
