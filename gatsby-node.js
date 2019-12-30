@@ -83,7 +83,6 @@ exports.createPages = ({ actions, graphql }) => {
       if (res.errors) {
         return Promise.reject(res.errors);
       }
-      // console.log(JSON.stringify(res, null, 2))
 
       res.data.allWordpressWpProjects.edges.forEach(async ({ node }) => {
         const images = processImages([

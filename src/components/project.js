@@ -38,7 +38,6 @@ const Date = styled.span``;
 
 const Project = (props) => {
   const { project, id } = props;
-  console.log({ project }, project.type);
   const tags = [];
   project.tags.map((tag, i) => tags.push(
     <Label tag size="mini" key={i}>

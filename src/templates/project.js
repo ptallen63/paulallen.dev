@@ -62,7 +62,6 @@ const ProjectHTML = styled.div``;
 export default function Template(props) {
   // eslint-disable-next-line
   const { pageContext: project } = props;
-  console.log({ project });
 
   const images = project.images.map((image, i) => <div key={i}><Screenshot centered src={image} /></div>);
   const tags = project.tags.map((tag, i) => (

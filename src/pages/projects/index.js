@@ -43,7 +43,6 @@ const Projects = styled.div`
 
 const ProjectsPage = (props) => {
   const { edges } = props.data.allWordpressWpProjects; // eslint-disable-line
-  console.log(edges);
   const projects = edges
     .map(({ node: project }) => ({
       id: project.id,

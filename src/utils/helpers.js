@@ -20,21 +20,21 @@ export const getTypeData = (type) => {
       return {
         color: 'black',
         icon: 'terminal',
-        name: 'CLI'
+        name: 'CLI',
       };
 
     case 'website':
       return {
         color: 'blue',
         icon: 'html5',
-        name: 'Website'
+        name: 'Website',
       };
 
     case 'webapp':
       return {
         color: 'olive',
         icon: 'code',
-        name: 'Wep App'
+        name: 'Wep App',
       };
 
     case 'rest_api':

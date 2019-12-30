@@ -63,19 +63,19 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/src/pages/projects`,
-        name: `projects`
-      }
-    },
-    {
-      resolve: 'gatsby-plugin-mdx',
-      options: {
-        extensions: [`.mdx`, `.md`],
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     path: `${__dirname}/src/pages/projects`,
+    //     name: `projects`
+    //   }
+    // },
+    // {
+    //   resolve: 'gatsby-plugin-mdx',
+    //   options: {
+    //     extensions: [`.mdx`, `.md`],
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-sitemap`
     },
