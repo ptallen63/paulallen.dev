@@ -2,13 +2,13 @@ import React from 'react';
 import { Container, Header, Grid } from 'semantic-ui-react';
 import styled from 'styled-components';
 import { graphql } from 'gatsby';
-import Layout from '../../components/layout';
-import SEO from '../../components/seo';
+import Layout from '../components/layout';
+import SEO from '../components/seo';
 
-import Navbar from '../../components/navbar';
-import ProjectBannerImg from '../../images/projectsBanner.png';
+import Navbar from '../components/navbar';
+import ProjectBannerImg from '../images/projectsBanner.png';
 // import "../../styles/projects.scss";
-import Project from '../../components/project';
+import Project from '../components/project';
 
 const Banner = styled.div`
   height: 50vh ;
@@ -58,6 +58,7 @@ const ProjectsPage = (props) => {
       tags: project.tags.map(tag => tag.name),
       content: project.content,
     }))
+    .sort((a, b) => new Date(b.dateCompleted) - new Date(a.dateCompleted))
     .map(project => (
       <Project
         index={project.id}
