@@ -66,16 +66,14 @@ const Technologies = styled.div`
 
 const ResumePage = (props) => {
   // eslint-disable-next-line
-  const renderProjects = props.data.allMdx.edges.map(({ node: project }) => (
+  const renderProjects = props.data.allWordpressWpProjects.edges.map(({ node: project }) => (
     <Project key={project.id}>
-      <ProjectIcon name={getTypeData(project.frontmatter.type).icon} />
+      <ProjectIcon name={getTypeData(project.acf.project_type).icon} />
       <ProjectContent>
         <ProjectHeader>
-          <Link to={project.frontmatter.path}>{project.frontmatter.title}</Link>
+          <Link to={project.path}>{project.title}</Link>
         </ProjectHeader>
-        <ProjectDescription>
-          {project.frontmatter.shortDescription}
-        </ProjectDescription>
+        <ProjectDescription dangerouslySetInnerHTML={{ __html: project.excerpt }} />
       </ProjectContent>
     </Project>
   ));
@@ -249,24 +247,21 @@ ResumePage.propTypes = {};
 export default ResumePage;
 
 export const projectQuery = graphql`
-  query resumeProjectQuery {
-    allMdx {
-      edges {
-        node {
-          id
-          excerpt
-          frontmatter {
+   query resumeProjectsQuery {
+      allWordpressWpProjects {
+        edges {
+          node {
+            id
+            acf {
+              project_type
+            }
+            excerpt
             path
             title
-            frontImage
-            type
-            dateCompleted
-            shortDescription
-            tags
-            url
+            wordpress_id
+
           }
         }
       }
     }
-  }
 `;

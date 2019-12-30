@@ -2,13 +2,13 @@ import React from 'react';
 import { Container, Header, Grid } from 'semantic-ui-react';
 import styled from 'styled-components';
 import { graphql } from 'gatsby';
-import Layout from '../../components/layout';
-import SEO from '../../components/seo';
+import Layout from '../components/layout';
+import SEO from '../components/seo';
 
-import Navbar from '../../components/navbar';
-import ProjectBannerImg from '../../images/projectsBanner.png';
+import Navbar from '../components/navbar';
+import ProjectBannerImg from '../images/projectsBanner.png';
 // import "../../styles/projects.scss";
-import Project from '../../components/project';
+import Project from '../components/project';
 
 const Banner = styled.div`
   height: 50vh ;
@@ -42,14 +42,30 @@ const Projects = styled.div`
 `;
 
 const ProjectsPage = (props) => {
-  const { edges } = props.data.allMdx; // eslint-disable-line
-  const projects = edges.map(({ node: project }) => (
-    <Project
-      index={project.id}
-      project={project}
-      key={project.id}
-    />
-  ));
+  const { edges } = props.data.allWordpressWpProjects; // eslint-disable-line
+  const projects = edges
+    .map(({ node: project }) => ({
+      id: project.id,
+      wordpressId: project.wordpress_id,
+      appUrl: project.acf.app_url,
+      title: project.title,
+      path: project.path,
+      excerpt: project.excerpt,
+      dateCompleted: project.acf.date_completed,
+      status: project.acf.project_status,
+      type: project.acf.project_type,
+      coverImage: project.featured_media.source_url,
+      tags: project.tags.map(tag => tag.name),
+      content: project.content,
+    }))
+    .sort((a, b) => new Date(b.dateCompleted) - new Date(a.dateCompleted))
+    .map(project => (
+      <Project
+        index={project.id}
+        project={project}
+        key={project.id}
+      />
+    ));
   return (
     <Layout>
       <SEO title="Projects" />
@@ -75,22 +91,35 @@ export default ProjectsPage;
 
 export const projectQuery = graphql`
   query allProjectsQuery {
-    allMdx {
+      allWordpressWpProjects {
         edges {
           node {
-            body
             id
-            frontmatter {
-              path
-              title
-              cover
-              frontImage
-              type
-              dateCompleted
-              shortDescription
-              images
-              tags
-              url
+            acf {
+              app_url
+              date_completed
+              project_status
+              project_type
+            }
+            excerpt
+            format
+            link
+            path
+            status
+            slug
+            title
+            type
+            wordpress_id
+            template
+            content
+            featured_media {
+              source_url
+            }
+            tags {
+              name
+            }
+            categories {
+              name
             }
           }
         }
