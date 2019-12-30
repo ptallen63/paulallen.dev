@@ -45,29 +45,27 @@ const ProjectsPage = (props) => {
   const { edges } = props.data.allWordpressWpProjects; // eslint-disable-line
   console.log(edges);
   const projects = edges
-  .map(({node: project }) => {
-    return {
+    .map(({ node: project }) => ({
       id: project.id,
       wordpressId: project.wordpress_id,
       appUrl: project.acf.app_url,
       title: project.title,
       path: project.path,
       excerpt: project.excerpt,
-      dataCompleted: project.acf.date_completed,
+      dateCompleted: project.acf.date_completed,
       status: project.acf.project_status,
       type: project.acf.project_type,
       coverImage: project.featured_media.source_url,
       tags: project.tags.map(tag => tag.name),
       content: project.content,
-    }
-  })
-  .map((project) => (
-    <Project
-      index={project.id}
-      project={project}
-      key={project.id}
-    />
-  ));
+    }))
+    .map(project => (
+      <Project
+        index={project.id}
+        project={project}
+        key={project.id}
+      />
+    ));
   return (
     <Layout>
       <SEO title="Projects" />
@@ -100,7 +98,6 @@ export const projectQuery = graphql`
             acf {
               app_url
               date_completed
-              project_images
               project_status
               project_type
             }

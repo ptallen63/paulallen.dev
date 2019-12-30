@@ -38,7 +38,7 @@ const Date = styled.span``;
 
 const Project = (props) => {
   const { project, id } = props;
-  console.log({project}, project.type)
+  console.log({ project }, project.type);
   const tags = [];
   project.tags.map((tag, i) => tags.push(
     <Label tag size="mini" key={i}>
@@ -53,7 +53,7 @@ const Project = (props) => {
           <Image
             fluid
             label={{
-              color: getTypeData(project.type).color, content: project.type, icon: getTypeData(project.type).icon, ribbon: true,
+              color: getTypeData(project.type).color, content: getTypeData(project.type).name, icon: getTypeData(project.type).icon, ribbon: true,
             }}
             className="project-image"
             centered

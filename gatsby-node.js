@@ -7,9 +7,11 @@
 // You can delete this file if you're not using it
 const path = require('path');
 
-const mediaQuery = `
-
-`;
+const processImages = arrayImageObjects => arrayImageObjects
+  .map(obj => {
+    return obj ? obj.source_url : false;
+  })
+  .filter(url => url !== false || url !== 'false');
 
 exports.onCreateWebpackConfig = ({ stage, actions }) => {
   actions.setWebpackConfig({
@@ -34,7 +36,21 @@ exports.createPages = ({ actions, graphql }) => {
             acf {
               app_url
               date_completed
-              project_images
+              project_image_1 {
+                source_url
+              }
+              project_image_2 {
+                source_url
+              }
+              project_image_3 {
+                source_url
+              }
+              project_image_4 {
+                source_url
+              }
+              project_image_5 {
+                source_url
+              }
               project_status
               project_type
             }
@@ -70,25 +86,13 @@ exports.createPages = ({ actions, graphql }) => {
       // console.log(JSON.stringify(res, null, 2))
 
       res.data.allWordpressWpProjects.edges.forEach(async ({ node }) => {
-        const images = await node.acf.project_images.split(',')
-          .map(async imageId => graphql(`
-                {
-                  allWordpressWpMedia(filter: {wordpress_id: {eq: ${imageId}}}) {
-                    edges {
-                      node {
-                        source_url
-                      }
-                    }
-                  }
-                }
-            `)
-            .then(imagesRes => {
-              console.log(JSON.stringify(imagesRes, null, 2));
-
-              return imagesRes.data.allWordpressWpMedia.edges[0].node.source_url
-            }));
-        const processedImages = await Promise.all(images);
-        console.log('creatingPage', JSON.stringify(node, null, 2), images, processedImages);
+        const images = processImages([
+          node.acf.project_image_1,
+          node.acf.project_image_2,
+          node.acf.project_image_3,
+          node.acf.project_image_4,
+          node.acf.project_image_5,
+        ]);
         createPage({
           path: node.path,
           component: projectTemplate,
@@ -98,15 +102,13 @@ exports.createPages = ({ actions, graphql }) => {
             appUrl: node.acf.app_url,
             title: node.title,
             excerpt: node.excerpt,
-            dataCompleted: node.acf.date_completed,
+            dateCompleted: node.acf.date_completed,
             status: node.acf.project_status,
             type: node.acf.project_type,
             coverImage: node.featured_media.source_url,
-            images: processedImages,
+            images,
             tags: node.tags.map(tag => tag.name),
             content: node.content,
-            path: node.path,
-
           },
         });
       });

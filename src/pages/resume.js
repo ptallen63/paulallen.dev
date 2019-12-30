@@ -73,7 +73,7 @@ const ResumePage = (props) => {
         <ProjectHeader>
           <Link to={project.path}>{project.title}</Link>
         </ProjectHeader>
-        <ProjectDescription dangerouslySetInnerHTML={{__html: project.excerpt}}/>
+        <ProjectDescription dangerouslySetInnerHTML={{ __html: project.excerpt }} />
       </ProjectContent>
     </Project>
   ));

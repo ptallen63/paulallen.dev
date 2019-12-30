@@ -102,7 +102,7 @@ back to projects
             </ProjectDate>
             <Label size="mini" color={getTypeData(project.type).color}>
               <Icon name={getTypeData(project.type).icon} />
-              {project.type}
+              {getTypeData(project.type).name}
             </Label>
             <Label size="mini" color={getStatusColor(project.status)}>
               {project.status}
