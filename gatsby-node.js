@@ -30,6 +30,7 @@ exports.createPages = ({ actions, graphql }) => {
       allWordpressWpProjects {
         edges {
           node {
+            id
             acf {
               app_url
               date_completed
@@ -48,6 +49,9 @@ exports.createPages = ({ actions, graphql }) => {
             wordpress_id
             template
             content
+            featured_media {
+              source_url
+            }
             tags {
               name
             }
@@ -89,14 +93,19 @@ exports.createPages = ({ actions, graphql }) => {
           path: node.path,
           component: projectTemplate,
           context: {
+            id: node.id,
+            wordpressId: node.wordpress_id,
             appUrl: node.acf.app_url,
             title: node.title,
+            excerpt: node.excerpt,
             dataCompleted: node.acf.date_completed,
             status: node.acf.project_status,
             type: node.acf.project_type,
+            coverImage: node.featured_media.source_url,
             images: processedImages,
             tags: node.tags.map(tag => tag.name),
             content: node.content,
+            path: node.path,
 
           },
         });

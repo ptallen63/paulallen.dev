@@ -38,8 +38,9 @@ const Date = styled.span``;
 
 const Project = (props) => {
   const { project, id } = props;
+  console.log({project}, project.type)
   const tags = [];
-  project.frontmatter.tags.map((tag, i) => tags.push(
+  project.tags.map((tag, i) => tags.push(
     <Label tag size="mini" key={i}>
       {tag}
     </Label>,
@@ -47,28 +48,28 @@ const Project = (props) => {
 
   return (
     <Grid.Column largeScreen={5} tablet={8} mobile={8}>
-      <Link to={project.frontmatter.path}>
+      <Link to={project.path}>
         <ProjectCard key={id}>
           <Image
             fluid
             label={{
-              color: getTypeData(project.frontmatter.type).color, content: project.frontmatter.type, icon: getTypeData(project.frontmatter.type).icon, ribbon: true,
+              color: getTypeData(project.type).color, content: project.type, icon: getTypeData(project.type).icon, ribbon: true,
             }}
             className="project-image"
             centered
-            src={project.frontmatter.frontImage}
+            src={project.coverImage}
           />
 
           <ProjectBody>
             <Header textAlign="center">
-              {project.frontmatter.title}
+              {project.title}
               <Header.Subheader>
                 <Date>
-                  {moment(project.frontmatter.dateCompleted).format('MMM YYYY')}
+                  {moment(project.dateCompleted).format('MMM YYYY')}
                 </Date>
               </Header.Subheader>
               <Header.Subheader>
-                {project.frontmatter.shortDescription}
+                {project.exceprt}
               </Header.Subheader>
             </Header>
             <Container textAlign="center">

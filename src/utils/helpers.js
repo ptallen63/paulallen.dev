@@ -15,29 +15,29 @@ export const getStatusColor = (status) => {
 };
 
 export const getTypeData = (type) => {
-  switch (type) {
-    case 'CLI':
+  switch (type.toLowerCase()) {
+    case 'cli':
       return {
         color: 'black',
         icon: 'terminal',
       };
 
-    case 'Website':
+    case 'website':
       return {
         color: 'blue',
         icon: 'html5',
       };
 
-    case 'Webapp':
+    case 'webapp':
       return {
         color: 'olive',
         icon: 'code',
       };
 
-    case 'REST Api':
+    case 'rest api':
       return { color: 'orange', icon: 'cogs' };
 
-    case 'Mobile App':
+    case 'mobileapp':
       return { color: 'purple', icon: 'mobile' };
 
     default:

@@ -42,8 +42,26 @@ const Projects = styled.div`
 `;
 
 const ProjectsPage = (props) => {
-  const { edges } = props.data.allMdx; // eslint-disable-line
-  const projects = edges.map(({ node: project }) => (
+  const { edges } = props.data.allWordpressWpProjects; // eslint-disable-line
+  console.log(edges);
+  const projects = edges
+  .map(({node: project }) => {
+    return {
+      id: project.id,
+      wordpressId: project.wordpress_id,
+      appUrl: project.acf.app_url,
+      title: project.title,
+      path: project.path,
+      excerpt: project.excerpt,
+      dataCompleted: project.acf.date_completed,
+      status: project.acf.project_status,
+      type: project.acf.project_type,
+      coverImage: project.featured_media.source_url,
+      tags: project.tags.map(tag => tag.name),
+      content: project.content,
+    }
+  })
+  .map((project) => (
     <Project
       index={project.id}
       project={project}
@@ -75,22 +93,36 @@ export default ProjectsPage;
 
 export const projectQuery = graphql`
   query allProjectsQuery {
-    allMdx {
+      allWordpressWpProjects {
         edges {
           node {
-            body
             id
-            frontmatter {
-              path
-              title
-              cover
-              frontImage
-              type
-              dateCompleted
-              shortDescription
-              images
-              tags
-              url
+            acf {
+              app_url
+              date_completed
+              project_images
+              project_status
+              project_type
+            }
+            excerpt
+            format
+            link
+            path
+            status
+            slug
+            title
+            type
+            wordpress_id
+            template
+            content
+            featured_media {
+              source_url
+            }
+            tags {
+              name
+            }
+            categories {
+              name
             }
           }
         }
