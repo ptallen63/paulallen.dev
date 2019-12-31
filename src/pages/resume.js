@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import Link from 'gatsby-link';
 import styled from 'styled-components';
@@ -19,9 +20,7 @@ import SEO from '../components/seo';
 import Layout from '../components/layout';
 import Navbar from '../components/navbar';
 import { getTypeData } from '../utils/helpers';
-import {
-  workItems, skills, honors, degrees, technologies,
-} from '../data/resumeData';
+import { degrees, technologies } from '../data/resumeData';
 
 // KeyPoint
 const KeyPoint = styled(Statistic)``;
@@ -65,6 +64,19 @@ const Technologies = styled.div`
 `;
 
 const ResumePage = (props) => {
+  const resumePageData = props.data.allWordpressPage.edges[0].node;
+  const jobsData = props.data.allWordpressAcfJobs.edges
+    .sort((a, b) => b.node.acf.year_began - a.node.acf.year_began)
+    .map(edge => ({
+      timeSpan: edge.node.acf.time_span,
+      position: edge.node.acf.position,
+      company: edge.node.acf.company,
+      location: edge.node.acf.location,
+      bullets: edge.node.acf.bullets.trim().split('|').filter(b => b !== ''),
+    }));
+
+  const honors = resumePageData.acf.honors.trim().split(';').filter(h => h !== '');
+  const skills = resumePageData.acf.skills.trim().split(';').filter(s => s !== '');
   // eslint-disable-next-line
   const renderProjects = props.data.allWordpressWpProjects.edges.map(({ node: project }) => (
     <Project key={project.id}>
@@ -79,10 +91,9 @@ const ResumePage = (props) => {
   ));
 
   const renderSkills = skills.map((skill, i) => (<Skill key={i} icon="code" content={skill} />));
-
   const renderHonors = honors.map((honor, i) => (<Honor key={i} icon="trophy" content={honor} />));
 
-  const renderExperience = workItems.map((w, index) => (
+  const renderExperience = jobsData.map((w, index) => (
     <Experience key={index}>
       <Label ribbon="right" size="mini">
         {w.timeSpan}
@@ -248,6 +259,32 @@ export default ResumePage;
 
 export const projectQuery = graphql`
    query resumeProjectsQuery {
+     allWordpressAcfJobs {
+        edges {
+          node {
+            acf {
+              bullets
+              company
+              location
+              position
+              time_span
+              year_began
+            }
+          }
+        }
+      }
+      allWordpressPage(filter: {path: {eq: "/resume/"}}) {
+        edges {
+          node {
+            id
+            acf {
+              honors
+              skills
+            }
+          }
+        }
+      }
+
       allWordpressWpProjects {
         edges {
           node {
