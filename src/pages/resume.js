@@ -20,7 +20,6 @@ import SEO from '../components/seo';
 import Layout from '../components/layout';
 import Navbar from '../components/navbar';
 import { getTypeData } from '../utils/helpers';
-import { degrees, technologies } from '../data/resumeData';
 
 // KeyPoint
 const KeyPoint = styled(Statistic)``;
@@ -63,7 +62,26 @@ const Technologies = styled.div`
   flex-wrap: wrap;
 `;
 
+export const degrees = [
+  {
+    name: 'B.S. Business Management / Finance',
+    school: 'Samford University',
+    date: 'May 2006',
+    location: 'Birmingham, AL',
+  },
+  {
+    name: 'Master in Business Administration',
+    school: 'Samford University',
+    date: 'May 2008',
+    location: 'Birmingham, AL',
+  },
+];
+
 const ResumePage = (props) => {
+  const technologies = props.data.allWordpressAcfTechnologies.edges.map(({ node }) => ({
+    name: node.acf.name,
+    imgUrl: node.acf.logo.source_url,
+  })).reverse();
   const resumePageData = props.data.allWordpressPage.edges[0].node;
   const jobsData = props.data.allWordpressAcfJobs.edges
     .sort((a, b) => b.node.acf.year_began - a.node.acf.year_began)
@@ -259,6 +277,18 @@ export default ResumePage;
 
 export const projectQuery = graphql`
    query resumeProjectsQuery {
+      allWordpressAcfTechnologies {
+        edges {
+          node {
+            acf {
+              name
+              logo {
+                source_url
+              }
+            }
+          }
+        }
+      }
      allWordpressAcfJobs {
         edges {
           node {
