@@ -26,8 +26,7 @@ const StyledContainer = styled(Container)`
 
 const AboutPage = (props) => {
   // eslint-disable-next-line react/destructuring-assignment
-  const { edges } = props.data.allWordpressPage;
-  const aboutPageData = edges[0].node;
+  const aboutPageData = props.data.wp.pageBy;
 
   return (
     <Layout>
@@ -40,8 +39,8 @@ const AboutPage = (props) => {
           <Grid.Column width={4}>
             <Image
               circular
-              alt={aboutPageData.featured_media.alt_text}
-              src={aboutPageData.featured_media.source_url}
+              alt={aboutPageData.featuredImage.altText}
+              src={aboutPageData.featuredImage.sourceUrl}
               size="medium"
               shape="circular"
               centered
@@ -74,18 +73,16 @@ export default AboutPage;
 
 export const aboutPageWuery = graphql`
   query AboutPageQuery {
-  allWordpressPage(filter: {path: {eq: "/about/"}}) {
-    edges {
-      node {
+    wp {
+      pageBy(uri: "about") {
         id
-        path
+        uri
         title
         content
-        featured_media {
-          source_url
-          alt_text
+        featuredImage {
+          sourceUrl
+          altText
         }
       }
     }
-  }
 }`;

@@ -78,30 +78,30 @@ export const degrees = [
 ];
 
 const ResumePage = (props) => {
-  const technologies = props.data.allWordpressAcfTechnologies.edges.map(({ node }) => ({
-    name: node.acf.name,
-    imgUrl: node.acf.logo.source_url,
+  const technologies = props.data.wp.technologies.edges.map(({ node }) => ({
+    name: node.technologiesPostType.name,
+    imgUrl: node.technologiesPostType.logo.sourceUrl,
   })).reverse();
-  const resumePageData = props.data.allWordpressPage.edges[0].node;
-  const jobsData = props.data.allWordpressAcfJobs.edges
-    .sort((a, b) => b.node.acf.year_began - a.node.acf.year_began)
+  const resumePageData = props.data.wp.pageBy;
+  const jobsData = props.data.wp.jobs.edges
+    .sort((a, b) => b.node.jobData.yearBegan - a.node.jobData.yearBegan)
     .map(edge => ({
-      timeSpan: edge.node.acf.time_span,
-      position: edge.node.acf.position,
-      company: edge.node.acf.company,
-      location: edge.node.acf.location,
-      bullets: edge.node.acf.bullets.trim().split('|').filter(b => b !== ''),
+      timeSpan: edge.node.jobData.timeSpan,
+      position: edge.node.jobData.position,
+      company: edge.node.jobData.company,
+      location: edge.node.jobData.location,
+      bullets: edge.node.jobData.bullets.trim().split('|').filter(b => b !== ''),
     }));
 
-  const honors = resumePageData.acf.honors.trim().split(';').filter(h => h !== '');
-  const skills = resumePageData.acf.skills.trim().split(';').filter(s => s !== '');
+  const honors = resumePageData.resumePage.honors.trim().split(';').filter(h => h !== '');
+  const skills = resumePageData.resumePage.skills.trim().split(';').filter(s => s !== '');
   // eslint-disable-next-line
-  const renderProjects = props.data.allWordpressWpProjects.edges.map(({ node: project }) => (
+  const renderProjects = props.data.wp.projects.edges.map(({ node: project }) => (
     <Project key={project.id}>
-      <ProjectIcon name={getTypeData(project.acf.project_type).icon} />
+      <ProjectIcon name={getTypeData(project.projectPostTypeFields.projectType).icon} />
       <ProjectContent>
         <ProjectHeader>
-          <Link to={project.path}>{project.title}</Link>
+          <Link to={project.uri}>{project.title}</Link>
         </ProjectHeader>
         <ProjectDescription dangerouslySetInnerHTML={{ __html: project.excerpt }} />
       </ProjectContent>
@@ -277,58 +277,56 @@ export default ResumePage;
 
 export const projectQuery = graphql`
    query resumeProjectsQuery {
-      allWordpressAcfTechnologies {
+     wp {
+      technologies(first: 100) {
         edges {
           node {
-            acf {
+            technologiesPostType {
               name
               logo {
-                source_url
+                sourceUrl
               }
             }
           }
         }
       }
-     allWordpressAcfJobs {
+     jobs(first: 100) {
         edges {
           node {
-            acf {
+            jobData {
               bullets
               company
               location
               position
-              time_span
-              year_began
+              timeSpan
+              yearBegan
             }
           }
         }
       }
-      allWordpressPage(filter: {path: {eq: "/resume/"}}) {
-        edges {
-          node {
-            id
-            acf {
-              honors
-              skills
-            }
-          }
+      pageBy(uri: "resume") {
+        id
+        resumePage {
+          honors
+          skills
         }
       }
 
-      allWordpressWpProjects {
+      projects(first: 100) {
         edges {
           node {
             id
-            acf {
-              project_type
+            projectPostTypeFields {
+              projectType
             }
             excerpt
-            path
+            uri
             title
-            wordpress_id
+            projectId
 
           }
         }
       }
     }
+}
 `;
