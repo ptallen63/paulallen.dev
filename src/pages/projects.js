@@ -92,7 +92,7 @@ export default ProjectsPage;
 export const projectQuery = graphql`
   query allProjectsQuery {
     wp {
-        projects {
+        projects (first: 100) {
           edges {
             node {
               id

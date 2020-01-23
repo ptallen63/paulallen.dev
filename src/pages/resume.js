@@ -278,7 +278,7 @@ export default ResumePage;
 export const projectQuery = graphql`
    query resumeProjectsQuery {
      wp {
-      technologies {
+      technologies(first: 100) {
         edges {
           node {
             technologiesPostType {
@@ -290,7 +290,7 @@ export const projectQuery = graphql`
           }
         }
       }
-     jobs {
+     jobs(first: 100) {
         edges {
           node {
             jobData {
@@ -312,7 +312,7 @@ export const projectQuery = graphql`
         }
       }
 
-      projects {
+      projects(first: 100) {
         edges {
           node {
             id
@@ -328,6 +328,5 @@ export const projectQuery = graphql`
         }
       }
     }
-
-     }
+}
 `;
