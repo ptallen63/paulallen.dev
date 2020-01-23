@@ -42,20 +42,20 @@ const Projects = styled.div`
 `;
 
 const ProjectsPage = (props) => {
-  const { edges } = props.data.allWordpressWpProjects; // eslint-disable-line
+  const { edges } = props.data.wp.projects; // eslint-disable-line
   const projects = edges
     .map(({ node: project }) => ({
       id: project.id,
-      wordpressId: project.wordpress_id,
-      appUrl: project.acf.app_url,
+      wordpressId: project.projectId,
+      appUrl: project.projectPostTypeFields.appUrl,
       title: project.title,
-      path: project.path,
+      path: project.uri,
       excerpt: project.excerpt,
-      dateCompleted: project.acf.date_completed,
-      status: project.acf.project_status,
-      type: project.acf.project_type,
-      coverImage: project.featured_media.source_url,
-      tags: project.tags.map(tag => tag.name),
+      dateCompleted: project.projectPostTypeFields.dateCompleted,
+      status: project.projectPostTypeFields.projectStatus,
+      type: project.projectPostTypeFields.projectType,
+      coverImage: project.featuredImage.sourceUrl,
+      tags: project.tags.edges.map(({ node }) => node.name),
       content: project.content,
     }))
     .sort((a, b) => new Date(b.dateCompleted) - new Date(a.dateCompleted))
@@ -91,35 +91,42 @@ export default ProjectsPage;
 
 export const projectQuery = graphql`
   query allProjectsQuery {
-      allWordpressWpProjects {
-        edges {
-          node {
-            id
-            acf {
-              app_url
-              date_completed
-              project_status
-              project_type
-            }
-            excerpt
-            format
-            link
-            path
-            status
-            slug
-            title
-            type
-            wordpress_id
-            template
-            content
-            featured_media {
-              source_url
-            }
-            tags {
-              name
-            }
-            categories {
-              name
+    wp {
+        projects {
+          edges {
+            node {
+              id
+              projectPostTypeFields {
+                appUrl
+                dateCompleted
+                projectStatus
+                projectType
+              }
+              excerpt
+              link
+              uri
+              status
+              slug
+              title
+              projectId
+              content
+              featuredImage {
+                sourceUrl
+              }
+              tags {
+                edges {
+                  node {
+                    name
+                  }
+                }
+              }
+              categories {
+                edges {
+                  node {
+                    name
+                  }
+                }
+              }
             }
           }
         }

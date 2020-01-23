@@ -8,9 +8,7 @@
 const path = require('path');
 
 const processImages = arrayImageObjects => arrayImageObjects
-  .map(obj => {
-    return obj ? obj.source_url : false;
-  })
+  .map(obj => (obj ? obj.sourceUrl : false))
   .filter(url => url !== false || url !== 'false');
 
 exports.onCreateWebpackConfig = ({ stage, actions }) => {
@@ -29,50 +27,57 @@ exports.createPages = ({ actions, graphql }) => {
 
   return graphql(`
     query ProjectsQuery {
-      allWordpressWpProjects {
-        edges {
-          node {
-            id
-            acf {
-              app_url
-              date_completed
-              project_image_1 {
-                source_url
+      wp {
+        projects {
+          edges {
+            node {
+              id
+              projectPostTypeFields {
+                appUrl
+                dateCompleted
+                projectImage1 {
+                  sourceUrl
+                }
+                projectImage2 {
+                  sourceUrl
+                }
+                projectImage3 {
+                  sourceUrl
+                }
+                projectImage4 {
+                  sourceUrl
+                }
+                projectImage5 {
+                  sourceUrl
+                }
+                projectStatus
+                projectType
               }
-              project_image_2 {
-                source_url
+              excerpt
+              link
+              uri
+              status
+              slug
+              title
+              projectId
+              content
+              featuredImage {
+                sourceUrl
               }
-              project_image_3 {
-                source_url
+              tags {
+                edges {
+                  node {
+                    name
+                  }
+                }
               }
-              project_image_4 {
-                source_url
+              categories {
+                edges {
+                  node {
+                    name
+                  }
+                }
               }
-              project_image_5 {
-                source_url
-              }
-              project_status
-              project_type
-            }
-            excerpt
-            format
-            link
-            path
-            status
-            slug
-            title
-            type
-            wordpress_id
-            template
-            content
-            featured_media {
-              source_url
-            }
-            tags {
-              name
-            }
-            categories {
-              name
             }
           }
         }
@@ -84,29 +89,29 @@ exports.createPages = ({ actions, graphql }) => {
         return Promise.reject(res.errors);
       }
 
-      res.data.allWordpressWpProjects.edges.forEach(async ({ node }) => {
+      res.data.wp.projects.edges.forEach(async ({ node }) => {
         const images = processImages([
-          node.acf.project_image_1,
-          node.acf.project_image_2,
-          node.acf.project_image_3,
-          node.acf.project_image_4,
-          node.acf.project_image_5,
+          node.projectPostTypeFields.projectImage1,
+          node.projectPostTypeFields.projectImage2,
+          node.projectPostTypeFields.projectImage3,
+          node.projectPostTypeFields.projectImage4,
+          node.projectPostTypeFields.projectImage5,
         ]);
         createPage({
-          path: node.path,
+          path: node.uri,
           component: projectTemplate,
           context: {
             id: node.id,
-            wordpressId: node.wordpress_id,
-            appUrl: node.acf.app_url,
+            wordpressId: node.projectId,
+            appUrl: node.projectPostTypeFields.appUrl,
             title: node.title,
             excerpt: node.excerpt,
-            dateCompleted: node.acf.date_completed,
-            status: node.acf.project_status,
-            type: node.acf.project_type,
-            coverImage: node.featured_media.source_url,
+            dateCompleted: node.projectPostTypeFields.dateCompleted,
+            status: node.projectPostTypeFields.projectStatus,
+            type: node.projectPostTypeFields.projectType,
+            coverImage: node.featuredImage.sourceUrl,
             images,
-            tags: node.tags.map(tag => tag.name),
+            tags: node.tags.edges.map(tag => tag.node.name),
             content: node.content,
           },
         });
