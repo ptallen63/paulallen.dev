@@ -135,10 +135,10 @@ export default class ContactModal extends Component {
     return (
       <Wrapper>
         <p>
-            Please complete this form with your name and email, and I will
-            get back to you as soon as possible. I usually try to respond
-            within 1-2 business days, but depending on volume it may be
-            longer.
+          Please complete this form with your name and email, and I will
+          get back to you as soon as possible. I usually try to respond
+          within 1-2 business days, but depending on volume it may be
+          longer.
         </p>
         {!form.submitted && (
         <Form noValidate loading={form.loading} onSubmit={this.handleSubmit}>
@@ -201,15 +201,15 @@ export default class ContactModal extends Component {
         {form.submitted && (
         <Message success>
           <strong>Success!</strong>
-              Your message is on its way. Thank you for reaching out.
-              I will respond as soon as we can.
+          Your message is on its way. Thank you for reaching out.
+          I will respond as soon as we can.
         </Message>
         )}
         {form.submitError && (
         <Message error>
           <strong>Uh-oh!</strong>
           {' '}
-              Something went wrong! Please try again.
+          Something went wrong! Please try again.
           {' '}
         </Message>
         )}

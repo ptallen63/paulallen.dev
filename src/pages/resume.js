@@ -163,21 +163,21 @@ const ResumePage = (props) => {
       <Container>
         <Container textAlign="center">
           <Header size="huge">
-          Paul T. Allen
+            Paul T. Allen
             <Header.Subheader>
               <Icon name="mail" />
-            email:
+              email:
               {' '}
               <a href="mailto:ptallen63@gmail.com">
-              ptallen63@gmail.com
+                ptallen63@gmail.com
               </a>
             </Header.Subheader>
             <Header.Subheader>
               {' '}
               <Icon name="world" />
-Web:
+              Web:
               <a href="https://paulallen.dev">
-              paulallen.dev
+                paulallen.dev
                 {' '}
               </a>
             </Header.Subheader>
@@ -192,10 +192,10 @@ Web:
               <KeyPoint>
                 <KeyPoint.Value>10+</KeyPoint.Value>
                 <KeyPoint.Label>
-Years
+                  Years
                   <br />
                   {' '}
-Experience
+                  Experience
                 </KeyPoint.Label>
               </KeyPoint>
             </Grid.Column>
@@ -203,10 +203,10 @@ Experience
               <KeyPoint>
                 <KeyPoint.Value>5+</KeyPoint.Value>
                 <KeyPoint.Label>
-Years
+                  Years
                   <br />
                   {' '}
-Management
+                  Management
                 </KeyPoint.Label>
               </KeyPoint>
             </Grid.Column>
@@ -214,10 +214,10 @@ Management
               <KeyPoint>
                 <KeyPoint.Value>3</KeyPoint.Value>
                 <KeyPoint.Label>
-Major
+                  Major
                   <br />
                   {' '}
-Frameworks
+                  Frameworks
                 </KeyPoint.Label>
               </KeyPoint>
             </Grid.Column>
@@ -241,9 +241,9 @@ Frameworks
           <Segment>
             <Label as="a" color="blue" ribbon>Projects</Label>
             <p>
-            Below are a few projects that I have been putting some time
-            into. This is not an exhaustive list, as some projects from
-            clients are not listed here.
+              Below are a few projects that I have been putting some time
+              into. This is not an exhaustive list, as some projects from
+              clients are not listed here.
             </p>
             <List>{renderProjects}</List>
           </Segment>

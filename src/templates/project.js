@@ -86,7 +86,7 @@ export default function Template(props) {
         <BackToProjectsLink to="/projects">
           {' '}
           <Icon name="arrow circle left" />
-back to projects
+          back to projects
         </BackToProjectsLink>
         <ProjectHeader as="h1">
           {project.title}

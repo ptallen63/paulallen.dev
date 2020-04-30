@@ -39,7 +39,7 @@ const Footer = () => (
         {' '}
         <Icon name="heart" />
         {' '}
-by Paul Allen
+        by Paul Allen
       </SmallParagraph>
       <SmallParagraph>
         Check out this site on
