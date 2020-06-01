@@ -9,8 +9,11 @@ import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 import Footer from './footer';
+import game from '../services/theGame';
 
 import 'semantic-ui-css/semantic.min.css'
+
+if (window) game.init();
 
 const Layout = (props) => (
   <StaticQuery
