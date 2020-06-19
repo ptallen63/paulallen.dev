@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-console */
 const theGame = {
   instructions: async () => {
@@ -7,30 +8,33 @@ const theGame = {
     const data = await res.json();
     console.info(data.body.text);
   },
-  iDidNotCopyDownMyPlayerId() {
-    return 'Too Bad for now!';
-  },
-  hallOfChampions() {
-    // Print the winners
-  },
+  // hallOfChampions() {
+  //   // Print the winners
+  // },
   register: async (username = null) => {
     if (!username) return console.log('to Register, just call this function with you player name as a string');
     if (typeof username !== 'string') return console.log("C'mon... username should be a string");
 
-    // / Generate an id
-    const res = await fetch(`${process.env.GAME_API}/register`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        username,
-      }),
-    });
-    const data = await res.json();
-    console.log(data.body.message);
-    console.log('Write this down, You will not see it again, and it is crucial that you have it');
-    // TODO: handle Error
+    try {
+      // / Generate an id
+      const res = await fetch(`${process.env.GAME_API}/register`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          username,
+        }),
+      });
+      console.clear();
+      const data = await res.json();
+      if (data.body && data.body.statusCode !== 200) {
+        throw Error(data.message);
+      }
+      return console.log(data.body.message);
+    } catch (error) {
+      return console.error(error);
+    }
   },
   proveYourWorth(body) {
     console.clear();
@@ -49,8 +53,28 @@ const theGame = {
 };
 
 
+const choosePill = (color) => {
+  console.clear();
+  switch (color.toLowerCase()) {
+    case 'red':
+    case 'red pill':
+      console.log('Welcome to the Adventure!\nLook inside the "window" and you willl find "theGame" you seek');
+      window.theGame = theGame;
+      localStorage.setItem('isPlayingTheGame', true);
+      break;
+    case 'blue':
+    case 'blue pill':
+      console.log('Go about your way, they world of that lies beneath is not something you are ready for');
+      break;
+    default:
+      console.log('Choose red, choose blue... or neither. Choices... much more than our abilities makes us who we really are');
+      break;
+  }
+};
+
 export default {
   init() {
-    window.theGame = theGame;
+    if (localStorage.getItem('isPlayingTheGame')) window.theGame = theGame;
+    window.choosePill = choosePill;
   },
 };

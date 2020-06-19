@@ -46,7 +46,7 @@
     "typed.js": "^2.0.10"
   },
   "devDependencies": {
-    "eslint": "^5.11.0",
+    "eslint": "^7.2.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-loader": "^2.1.1",
     "eslint-plugin-import": "^2.20.2",
@@ -70,6 +70,7 @@
     "serve:lambda": "netlify-lambda serve ./src/netlify-functions",
     "build:lambda": "netlify-lambda build ./src/netlify-functions",
     "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
     "predeploy": "git checkout master && git pull",
     "deploy": "git checkout production && git pull && git merge master && git push && git checkout master",
     "postdeploy": "echo \"Deployment complete!\""
