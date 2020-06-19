@@ -74,7 +74,7 @@ const choosePill = (color) => {
 
 export default {
   init() {
-    localStorage.setItem('HereIsAKey', 'RGk26qde')
+    localStorage.setItem('HereIsAKey', 'RGk26qde');
     if (localStorage.getItem('isPlayingTheGame')) window.theGame = theGame;
     window.choosePill = choosePill;
   },

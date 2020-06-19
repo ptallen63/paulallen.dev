@@ -112,7 +112,7 @@ const IndexPage = () => (
 
           <Grid.Column width={5}>
             <Image
-              alt="The Key is x0evXeAY"
+              alt="A Key is x0evXeAY"
               circular
               src="http://res.cloudinary.com/mulleravenue/image/fetch/https://s3-us-west-2.amazonaws.com/paultallen.com/profile.jpg"
               size="medium"
