@@ -5,15 +5,18 @@
  * See: https://www.gatsbyjs.org/docs/static-query/
  */
 
-import React from "react"
+import React, { Fragment } from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 import Footer from './footer';
 import game from '../services/theGame';
+import gameHint from '../data/gameHint';
 
 import 'semantic-ui-css/semantic.min.css'
 
 if (window) game.init();
+
+const Comment = ({text}) => (<div className="TheGame" dangerouslySetInnerHTML={{__html:`<!-- ${text} -->`}}/>)
 
 const Layout = (props) => (
   <StaticQuery
@@ -30,6 +33,7 @@ const Layout = (props) => (
       <>
         {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
         <div>
+        <Comment text={gameHint}/>
           <main>{props.children}</main>
           <Footer/>
         </div>
