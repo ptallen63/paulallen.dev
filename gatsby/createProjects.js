@@ -110,7 +110,7 @@ module.exports = async ({ actions, graphql }) => {
         ]);
 
         createPage({
-          path: project.uri,
+          path: `projects/${project.uri}`,
           component: projectTemplate,
           context: {
             id: project.id,
