@@ -45,13 +45,12 @@ const theGame = {
       },
       body: JSON.stringify(body),
     })
-      .then(res => res.json())
+      .then((res) => res.json())
       .then((data) => {
         console.log(data.message);
       });
   },
 };
-
 
 const choosePill = (color) => {
   console.clear();

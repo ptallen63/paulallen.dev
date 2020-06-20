@@ -85,16 +85,16 @@ const ResumePage = (props) => {
   const resumePageData = props.data.wp.pageBy;
   const jobsData = props.data.wp.jobs.edges
     .sort((a, b) => b.node.jobData.yearBegan - a.node.jobData.yearBegan)
-    .map(edge => ({
+    .map((edge) => ({
       timeSpan: edge.node.jobData.timeSpan,
       position: edge.node.jobData.position,
       company: edge.node.jobData.company,
       location: edge.node.jobData.location,
-      bullets: edge.node.jobData.bullets.trim().split('|').filter(b => b !== ''),
+      bullets: edge.node.jobData.bullets.trim().split('|').filter((b) => b !== ''),
     }));
 
-  const honors = resumePageData.resumePage.honors.trim().split(';').filter(h => h !== '');
-  const skills = resumePageData.resumePage.skills.trim().split(';').filter(s => s !== '');
+  const honors = resumePageData.resumePage.honors.trim().split(';').filter((h) => h !== '');
+  const skills = resumePageData.resumePage.skills.trim().split(';').filter((s) => s !== '');
   // eslint-disable-next-line
   const renderProjects = props.data.wp.projects.edges.map(({ node: project }) => (
     <Project key={project.id}>

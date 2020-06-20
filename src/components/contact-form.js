@@ -10,7 +10,6 @@ import validate from 'utils/validate';
 import sanitize from 'utils/sanitize';
 import packageUp from 'utils/package-up';
 
-
 const Wrapper = styled.div`
   position: relative;
   background: white;
@@ -96,7 +95,7 @@ export default class ContactModal extends Component {
   handleSubmit() {
     const { form } = this.state;
     const validatedData = validate(form.data);
-    const hasErrors = Object.values(validatedData).filter(value => value.error).length > 0;
+    const hasErrors = Object.values(validatedData).filter((value) => value.error).length > 0;
     if (hasErrors) {
       form.data = validatedData;
       form.valid = false;

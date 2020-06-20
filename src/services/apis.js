@@ -7,7 +7,7 @@ const instance = axios.create({
   },
 });
 
-const contactData = data => instance.post('/sendContactSubmit', data);
+const contactData = (data) => instance.post('/sendContactSubmit', data);
 
 export default {
   contactData,

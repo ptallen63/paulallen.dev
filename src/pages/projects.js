@@ -59,7 +59,7 @@ const ProjectsPage = (props) => {
       content: project.content,
     }))
     .sort((a, b) => new Date(b.dateCompleted) - new Date(a.dateCompleted))
-    .map(project => (
+    .map((project) => (
       <Project
         index={project.id}
         project={project}

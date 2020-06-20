@@ -14,7 +14,7 @@ const PageHeader = styled.h1`
   margin-bottom: 10px;
 `;
 
-const ContactPage = props => (
+const ContactPage = (props) => (
   <Layout>
     <SEO title="Contact" />
     <Navbar {...props} />

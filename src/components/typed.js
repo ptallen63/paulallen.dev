@@ -11,7 +11,6 @@ const Keywords = styled(Header)`
     margin-bottom: 55px !important;
 `;
 
-
 class TypedComponent extends Component {
   componentDidMount() {
     const { strings } = this.props;

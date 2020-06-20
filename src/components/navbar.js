@@ -72,7 +72,6 @@ const Navbar = ({ location }) => {
   );
 };
 
-
 Navbar.propTypes = {};
 
 export default Navbar;
