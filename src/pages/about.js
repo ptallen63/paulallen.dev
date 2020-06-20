@@ -23,7 +23,6 @@ const StyledContainer = styled(Container)`
   }
 `;
 
-
 const AboutPage = (props) => {
   // eslint-disable-next-line react/destructuring-assignment
   const aboutPageData = props.data.wp.pageBy;
@@ -65,7 +64,6 @@ const AboutPage = (props) => {
     </Layout>
   );
 };
-
 
 AboutPage.propTypes = {};
 

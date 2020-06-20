@@ -32,7 +32,7 @@
     "gatsby-transformer-sharp": "^2.5.0",
     "lodash": "^4.17.13",
     "moment": "^2.24.0",
-    "node-sass": "^4.14.0",
+    "node-sass": "^4.14.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -46,8 +46,8 @@
     "typed.js": "^2.0.10"
   },
   "devDependencies": {
-    "eslint": "^5.11.0",
-    "eslint-config-airbnb": "^17.1.0",
+    "eslint": "7.2.0",
+    "eslint-config-airbnb": "^18.2.0",
     "eslint-loader": "^2.1.1",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-jsx-a11y": "^6.1.2",
@@ -70,6 +70,7 @@
     "serve:lambda": "netlify-lambda serve ./src/netlify-functions",
     "build:lambda": "netlify-lambda build ./src/netlify-functions",
     "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
     "predeploy": "git checkout master && git pull",
     "deploy": "git checkout production && git pull && git merge master && git push && git checkout master",
     "postdeploy": "echo \"Deployment complete!\""

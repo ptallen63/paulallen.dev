@@ -79,7 +79,7 @@ const IndexPage = () => (
 
             <Typed strings={homepageTypedText} />
 
-            {socialLinks.map(link => (
+            {socialLinks.map((link) => (
               <a key={link.link} target="_blank" rel="noopener noreferrer" href={link.link}>
                 <Button animated="fade" color={link.color} size="large">
                   <Button.Content visible>
@@ -94,7 +94,7 @@ const IndexPage = () => (
 
             <Divider />
             <Grid columns={4} stackable centered>
-              {sections.map(section => (
+              {sections.map((section) => (
 
                 <Grid.Column key={`${section.name}-${section.link}`} textAlign="center">
                   <Link to={section.link}>
@@ -112,6 +112,7 @@ const IndexPage = () => (
 
           <Grid.Column width={5}>
             <Image
+              alt="A Key is x0evXeAY"
               circular
               src="http://res.cloudinary.com/mulleravenue/image/fetch/https://s3-us-west-2.amazonaws.com/paultallen.com/profile.jpg"
               size="medium"
