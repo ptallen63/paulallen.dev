@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.org/docs/static-query/
  */
 
-import React, { Fragment } from "react"
+import React, { useEffect } from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 import Footer from './footer';
@@ -14,11 +14,15 @@ import gameHint from '../data/gameHint';
 
 import 'semantic-ui-css/semantic.min.css'
 
-if (window) game.init();
 
 const Comment = ({text}) => (<div className="TheGame" dangerouslySetInnerHTML={{__html:`<!-- ${text} -->`}}/>)
 
-const Layout = (props) => (
+const Layout = (props) => {
+  useEffect(() => {
+    if (window) game.init();
+  }, [])
+
+  return(
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -40,7 +44,7 @@ const Layout = (props) => (
       </>
     )}
   />
-)
+)}
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
