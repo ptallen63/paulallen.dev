@@ -101,7 +101,7 @@ const ResumePage = (props) => {
       <ProjectIcon name={getTypeData(project.projectPostTypeFields.projectType).icon} />
       <ProjectContent>
         <ProjectHeader>
-          <Link to={project.uri}>{project.title}</Link>
+          <Link to={`/projects/${project.uri}`}>{project.title}</Link>
         </ProjectHeader>
         <ProjectDescription dangerouslySetInnerHTML={{ __html: project.excerpt }} />
       </ProjectContent>
