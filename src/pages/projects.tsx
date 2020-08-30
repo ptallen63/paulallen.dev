@@ -113,7 +113,7 @@ const ProjectsPage: React.FC<Props> = (props) => {
       <Navbar {...props} />
 
       <Banner>
-        <ProjectPageHeader as="h1" textAlign="center">
+        <ProjectPageHeader as="h1">
           <BannerText>Projects</BannerText>
         </ProjectPageHeader>
       </Banner>
