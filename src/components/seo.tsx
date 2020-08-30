@@ -11,19 +11,20 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 interface Meta {
   name: string,
-  content: string,
+  content?: string,
+  property?: string,
 }
 
 interface Props {
-  description: string,
-  lang: string,
-  meta: Meta[],
-  keywords: string[],
-  title: string,
+  description?: string
+  lang?: string
+  meta?: []
+  title: string
+  keywords?: string[]
 }
 
 const SEO: React.FC<Props> = ({
-  description, lang, meta, keywords, title,
+  description, lang = 'en', meta = [], keywords = [], title,
 }) => {
   const { site } = useStaticQuery(
     graphql`
@@ -90,15 +91,9 @@ const SEO: React.FC<Props> = ({
             }
             : [],
         )
-        .concat(meta)}
+        .concat(meta || [])}
     />
   );
-};
-
-SEO.defaultProps = {
-  lang: 'en',
-  meta: [],
-  keywords: [],
 };
 
 export default SEO;
