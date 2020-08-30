@@ -14,7 +14,13 @@ const PageHeader = styled.h1`
   margin-bottom: 10px;
 `;
 
-const ContactPage = (props) => (
+interface Props {
+  location: {
+    pathname: string
+  }
+}
+
+const ContactPage: React.FC<Props> = (props) => (
   <Layout>
     <SEO title="Contact" />
     <Navbar {...props} />

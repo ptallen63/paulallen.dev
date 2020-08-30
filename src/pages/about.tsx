@@ -36,7 +36,7 @@ interface AboutPageData {
 
 interface Props {
   location: {
-    path: string
+    pathname: string
   }
   data: {
     wp: {
