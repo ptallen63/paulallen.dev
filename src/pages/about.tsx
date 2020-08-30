@@ -23,7 +23,29 @@ const StyledContainer = styled(Container)`
   }
 `;
 
-const AboutPage = (props) => {
+interface AboutPageData {
+  id: string
+  uri: string
+  title: string
+  featuredImage: {
+    altText: string
+    sourceUrl: string
+  }
+  content: string
+}
+
+interface Props {
+  location: {
+    path: string
+  }
+  data: {
+    wp: {
+      pageBy: AboutPageData
+    },
+  },
+}
+
+const AboutPage: React.FC<Props> = (props) => {
   // eslint-disable-next-line react/destructuring-assignment
   const aboutPageData = props.data.wp.pageBy;
 
