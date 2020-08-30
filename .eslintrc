@@ -1,10 +1,24 @@
 {
   "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
   "extends": [
     "plugin:@typescript-eslint/recommended",
-    "airbnb",
+    "airbnb"
   ],
+  "plugins": ["@typescript-eslint", "react"],
   "rules": {
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
     "jsx-a11y/label-has-for": 0,
     "max-len": 0,
     "react/no-array-index-key": 0,
@@ -30,6 +44,12 @@
   "settings": {
     "import/resolver": {
       "node": {
+                "extensions": [
+                  ".js",
+                  ".jsx",
+                  ".ts",
+                  ".tsx"
+                ],
         "paths": [
           "src"
         ]

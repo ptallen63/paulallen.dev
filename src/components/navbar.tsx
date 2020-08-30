@@ -45,7 +45,13 @@ const MenuItem = styled(Menu.Item)`
 // RegExp for the Project route
 const regex = new RegExp('/(project/).*');
 
-const Navbar = ({ location }) => {
+interface Props {
+  location: {
+    pathname?: string,
+  }
+}
+
+const Navbar: React.FC<Props> = ({ location }) => {
   const activeItem = location.pathname || '';
   return (
     <Wrapper>
@@ -71,7 +77,5 @@ const Navbar = ({ location }) => {
     </Wrapper>
   );
 };
-
-Navbar.propTypes = {};
 
 export default Navbar;

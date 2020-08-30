@@ -16,9 +16,9 @@ import {
   Icon,
   Image,
 } from 'semantic-ui-react';
+import Layout from 'components/layout';
+import Navbar from 'components/navbar';
 import SEO from '../components/seo';
-import Layout from '../components/layout';
-import Navbar from '../components/navbar';
 import { getTypeData } from '../utils/helpers';
 
 // KeyPoint
