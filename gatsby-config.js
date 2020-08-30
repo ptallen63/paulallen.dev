@@ -19,6 +19,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-typescript`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-netlify`,
     `gatsby-plugin-styled-components`,

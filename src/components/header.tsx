@@ -1,15 +1,14 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 
-const Header = ({ siteTitle }) => (
+interface Props {
+  siteTitle?: string,
+}
+
+const Header: React.FC<Props> = ({ siteTitle }) => (
   <header>
     {siteTitle}
   </header>
 );
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-};
 
 Header.defaultProps = {
   siteTitle: '',

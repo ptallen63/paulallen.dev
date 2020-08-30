@@ -1,5 +1,9 @@
 {
-  "extends": "airbnb",
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "airbnb",
+  ],
   "rules": {
     "jsx-a11y/label-has-for": 0,
     "max-len": 0,
@@ -13,7 +17,8 @@
       {
         "extensions": [
           ".js",
-          ".jsx"
+          ".jsx",
+          ".tsx"
         ]
       }
     ]
