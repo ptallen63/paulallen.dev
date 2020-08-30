@@ -36,9 +36,24 @@ const ProjectCard = styled(Segment)`
 
 const Date = styled.span``;
 
-const Project = (props) => {
-  const { project, id } = props;
-  const tags = [];
+interface Project {
+  path: string,
+  type: string,
+  coverImage: string,
+  title: string,
+  dateCompleted: string,
+  exceprt: string,
+  tags: string[],
+
+}
+
+interface Props {
+  project: Project,
+  id: string
+}
+
+const Project: React.FC<Props> = ({ project, id }) => {
+  const tags: JSX.Element[] = [];
   project.tags.map((tag, i) => tags.push(
     <Label tag size="mini" key={i}>
       {tag}
@@ -79,10 +94,6 @@ const Project = (props) => {
       </Link>
     </Grid.Column>
   );
-};
-
-Project.propTypes = {
-
 };
 
 export default Project;

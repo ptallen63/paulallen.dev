@@ -1,4 +1,4 @@
-export const getStatusColor = (status) => {
+export const getStatusColor = (status: string): string => {
   switch (status) {
     case 'Active':
       return 'green';
@@ -14,7 +14,7 @@ export const getStatusColor = (status) => {
   }
 };
 
-export const getTypeData = (type) => {
+export const getTypeData = (type: string): {color: string | null, icon: string | null, name: string | null} => {
   switch (type.toLowerCase()) {
     case 'cli':
       return {
@@ -44,6 +44,6 @@ export const getTypeData = (type) => {
       return { color: 'purple', icon: 'mobile', name: 'Mobile App' };
 
     default:
-      return false;
+      return { color: null, icon: null, name: null };
   }
 };
