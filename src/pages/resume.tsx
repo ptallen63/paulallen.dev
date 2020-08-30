@@ -16,9 +16,9 @@ import {
   Icon,
   Image,
 } from 'semantic-ui-react';
-import SEO from '../components/seo';
 import Layout from '../components/layout';
 import Navbar from '../components/navbar';
+import SEO from '../components/seo';
 import { getTypeData } from '../utils/helpers';
 
 // KeyPoint
@@ -77,14 +77,93 @@ export const degrees = [
   },
 ];
 
-const ResumePage = (props) => {
+interface Technology {
+  node: {
+    technologiesPostType: {
+      name: string
+      logo: {
+        sourceUrl: string
+      }
+    }
+  }
+}
+
+interface Job {
+  node: {
+    jobData: {
+      yearBegan: string
+      timeSpan: string
+      position: string
+      company: string
+      location: string
+      bullets: string
+    }
+  }
+}
+
+interface Resume {
+  resumePage: {
+    honors: string
+    skills: string
+  }
+}
+
+interface ProjectType {
+  node: {
+    id: string
+    projectId: string
+    title: string
+    uri: string
+    content: string
+    excerpt: string
+    projectPostTypeFields: {
+      appUrl: string
+      excerpt: string
+      dateCompleted: string
+      projectStatus: string
+      projectType: string
+    }
+    featuredImage: {
+      sourceUrl: string
+    }
+    tags: {
+      edges: {
+        node: {
+          name: string
+        }
+      }[]
+    }
+  }
+}
+
+interface Props {
+  location: {
+    pathname: string
+  }
+  data: {
+    wp: {
+      pageBy: Resume
+      technologies: {
+        edges: Technology[]
+      }
+      jobs: {
+        edges: Job[]
+      }
+      projects: {
+        edges: ProjectType[]
+      }
+    }
+  }
+}
+
+const ResumePage: React.FC<Props> = (props) => {
   const technologies = props.data.wp.technologies.edges.map(({ node }) => ({
     name: node.technologiesPostType.name,
     imgUrl: node.technologiesPostType.logo.sourceUrl,
   })).reverse();
   const resumePageData = props.data.wp.pageBy;
   const jobsData = props.data.wp.jobs.edges
-    .sort((a, b) => b.node.jobData.yearBegan - a.node.jobData.yearBegan)
+    .sort((a, b) => +b.node.jobData.yearBegan - +a.node.jobData.yearBegan)
     .map((edge) => ({
       timeSpan: edge.node.jobData.timeSpan,
       position: edge.node.jobData.position,

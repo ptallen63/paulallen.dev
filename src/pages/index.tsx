@@ -47,7 +47,17 @@ const SectionLinks = styled(Statistic)`
 }
 `;
 
-const socialLinks = [
+interface SocialLink {
+  color: 'twitter' | 'linkedin' | 'black'
+  link: string
+  icon: 'twitter' | 'linkedin' | 'github'
+  text: string
+  hiddenText: string
+  name: string
+
+}
+
+const socialLinks: SocialLink[] = [
   {
     name: 'twitter', color: 'twitter', icon: 'twitter', text: 'Twitter', hiddenText: '@ptallen63', link: 'https://twitter.com/ptallen63',
   },
@@ -59,14 +69,20 @@ const socialLinks = [
   },
 ];
 
-const sections = [
+interface Section {
+  name: string
+  link: string
+  icon: 'code' | 'info' | 'file text' | 'mail outline'
+}
+
+const sections: Section[] = [
   { name: 'Projects', link: 'projects', icon: 'code' },
   { name: 'About Me', link: 'about', icon: 'info' },
   { name: 'Resume', link: 'resume', icon: 'file text' },
   { name: 'Contact Me', link: 'contact', icon: 'mail outline' },
 ];
 
-const IndexPage = () => (
+const IndexPage: React.FC = () => (
   <Layout>
     <SEO title="Developer" keywords={['gatsby', 'application', 'react']} />
     <Wrapper>

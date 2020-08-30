@@ -21,7 +21,7 @@ const SmallParagraph = styled.p`
   margin-bottom: 5px !important;
 `;
 
-const Footer = () => (
+const Footer: React.FC = () => (
   <div>
     <Wrapper>
       <StyledDivider />

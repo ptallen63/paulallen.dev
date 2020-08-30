@@ -4,7 +4,13 @@ import Navbar from '../components/navbar';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
-const NotFoundPage = (props) => (
+interface Props {
+  location: {
+    pathname: string,
+  },
+}
+
+const NotFoundPage: React.FC<Props> = (props) => (
   <Layout>
     <SEO title="404" />
     <Navbar {...props} />
