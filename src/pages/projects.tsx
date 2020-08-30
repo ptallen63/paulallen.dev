@@ -41,7 +41,48 @@ const Projects = styled.div`
   padding-top: 20px;
 `;
 
-const ProjectsPage = (props) => {
+interface ProjectType {
+  node: {
+    id: string
+    projectId: string
+    title: string
+    uri: string
+    content: string
+    excerpt: string
+    projectPostTypeFields: {
+      appUrl: string
+      excerpt: string
+      dateCompleted: string
+      projectStatus: string
+      projectType: string
+    }
+    featuredImage: {
+      sourceUrl: string
+    }
+    tags: {
+      edges: {
+        node: {
+          name: string
+        }
+      }[]
+    }
+  }
+}
+
+interface Props {
+  location: {
+    pathname: string
+  }
+  data: {
+    wp: {
+      projects: {
+        edges: ProjectType[]
+      }
+    }
+  }
+}
+
+const ProjectsPage: React.FC<Props> = (props) => {
   const { edges } = props.data.wp.projects; // eslint-disable-line
   const projects = edges
     .map(({ node: project }) => ({
@@ -58,10 +99,10 @@ const ProjectsPage = (props) => {
       tags: project.tags.edges.map(({ node }) => node.name),
       content: project.content,
     }))
-    .sort((a, b) => new Date(b.dateCompleted) - new Date(a.dateCompleted))
+    .sort((a, b) => Number(new Date(b.dateCompleted)) - Number(new Date(a.dateCompleted)))
     .map((project) => (
       <Project
-        index={project.id}
+        id={project.id}
         project={project}
         key={project.id}
       />

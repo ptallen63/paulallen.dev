@@ -42,7 +42,7 @@ interface Project {
   coverImage: string,
   title: string,
   dateCompleted: string,
-  exceprt: string,
+  exceprt?: string,
   tags: string[],
 
 }
