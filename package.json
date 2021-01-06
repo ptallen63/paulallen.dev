@@ -7,7 +7,7 @@
   "dependencies": {
     "@mdx-js/mdx": "^1.6.0",
     "@mdx-js/react": "^1.6.0",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "classnames": "^2.2.6",
     "components": "^0.1.0",
     "dotenv": "^6.2.0",
