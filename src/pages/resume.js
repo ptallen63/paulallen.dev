@@ -190,7 +190,7 @@ const ResumePage = (props) => {
           <Grid columns={3} centered>
             <Grid.Column textAlign="center">
               <KeyPoint>
-                <KeyPoint.Value>10+</KeyPoint.Value>
+                <KeyPoint.Value>15+</KeyPoint.Value>
                 <KeyPoint.Label>
                   Years
                   <br />
@@ -201,7 +201,7 @@ const ResumePage = (props) => {
             </Grid.Column>
             <Grid.Column textAlign="center">
               <KeyPoint>
-                <KeyPoint.Value>5+</KeyPoint.Value>
+                <KeyPoint.Value>8+</KeyPoint.Value>
                 <KeyPoint.Label>
                   Years
                   <br />
@@ -212,12 +212,12 @@ const ResumePage = (props) => {
             </Grid.Column>
             <Grid.Column textAlign="center">
               <KeyPoint>
-                <KeyPoint.Value>3</KeyPoint.Value>
+                <KeyPoint.Value>15+</KeyPoint.Value>
                 <KeyPoint.Label>
-                  Major
+                  Web
                   <br />
                   {' '}
-                  Frameworks
+                  Technologies
                 </KeyPoint.Label>
               </KeyPoint>
             </Grid.Column>
