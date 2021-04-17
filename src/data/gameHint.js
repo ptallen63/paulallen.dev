@@ -8,7 +8,7 @@ The one looking at my code...
 You are obviously digging through my code for some reason.
 I don't mind at all. Have a look a round.
 
-But, I wonder if I might interest your in a friendly game of skill.
+But, I wonder if I might interest you in a friendly game of skill.
 
 If you belive yourself worthy then open the "window" of your mind and "choose a pill".
 
