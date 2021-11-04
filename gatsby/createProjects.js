@@ -13,29 +13,7 @@ module.exports = async ({ actions, graphql }) => {
             hasNextPage
           }
           nodes {
-            id
-            projectPostTypeFields {
-              appUrl
-              dateCompleted
-              projectImage1 {
-                sourceUrl
-              }
-              projectImage2 {
-                sourceUrl
-              }
-              projectImage3 {
-                sourceUrl
-              }
-              projectImage4 {
-                sourceUrl
-              }
-              projectImage5 {
-                sourceUrl
-              }
-              projectStatus
-              projectType
-            }
-            excerpt
+               excerpt
             link
             uri
             status
@@ -43,23 +21,47 @@ module.exports = async ({ actions, graphql }) => {
             title
             projectId
             content
-            featuredImage {
-              sourceUrl
-            }
-            tags {
-              edges {
-                node {
-                  name
-                }
-              }
-            }
-            categories {
-              edges {
-                node {
-                  name
-                }
-              }
-            }
+      categories {
+        edges {
+          node {
+            name
+          }
+        }
+      }
+      tags {
+        edges {
+          node {
+            name
+          }
+        }
+      }
+      featuredImage {
+        node {
+          sourceUrl
+        }
+      }
+      projectPostTypeFields {
+        appUrl
+        dateCompleted
+        fieldGroupName
+        projectStatus
+        projectType
+        projectImage1 {
+          sourceUrl
+        }
+        projectImage2 {
+          sourceUrl
+        }
+        projectImage3 {
+          sourceUrl
+        }
+        projectImage4 {
+          sourceUrl
+        }
+        projectImage5 {
+          sourceUrl
+        }
+      }
           }
         }
       }
@@ -110,7 +112,7 @@ module.exports = async ({ actions, graphql }) => {
         ]);
 
         createPage({
-          path: `projects/${project.uri}`,
+          path: `${project.uri}`,
           component: projectTemplate,
           context: {
             id: project.id,

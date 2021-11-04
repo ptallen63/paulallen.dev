@@ -111,7 +111,10 @@ export const projectQuery = graphql`
               projectId
               content
               featuredImage {
-                sourceUrl
+                node {
+
+                  sourceUrl
+                }
               }
               tags {
                 edges {

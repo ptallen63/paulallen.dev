@@ -78,8 +78,11 @@ export const aboutPageWuery = graphql`
         title
         content
         featuredImage {
-          sourceUrl
-          altText
+          node {
+
+            sourceUrl
+            altText
+          }
         }
       }
     }
