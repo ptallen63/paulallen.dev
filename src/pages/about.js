@@ -38,8 +38,8 @@ const AboutPage = (props) => {
           <Grid.Column width={4}>
             <Image
               circular
-              alt={aboutPageData.featuredImage.altText}
-              src={aboutPageData.featuredImage.sourceUrl}
+              alt={aboutPageData.featuredImage.node.altText}
+              src={aboutPageData.featuredImage.node.sourceUrl}
               size="medium"
               shape="circular"
               centered
@@ -78,8 +78,11 @@ export const aboutPageWuery = graphql`
         title
         content
         featuredImage {
-          sourceUrl
-          altText
+          node {
+
+            sourceUrl
+            altText
+          }
         }
       }
     }

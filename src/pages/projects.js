@@ -54,7 +54,7 @@ const ProjectsPage = (props) => {
       dateCompleted: project.projectPostTypeFields.dateCompleted,
       status: project.projectPostTypeFields.projectStatus,
       type: project.projectPostTypeFields.projectType,
-      coverImage: project.featuredImage.sourceUrl,
+      coverImage: project.featuredImage.node.sourceUrl,
       tags: project.tags.edges.map(({ node }) => node.name),
       content: project.content,
     }))
@@ -111,7 +111,9 @@ export const projectQuery = graphql`
               projectId
               content
               featuredImage {
-                sourceUrl
+                node {
+                  sourceUrl
+                }
               }
               tags {
                 edges {
