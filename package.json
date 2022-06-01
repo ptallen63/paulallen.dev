@@ -40,7 +40,7 @@
     "react-slick": "^0.23.2",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.85.0",
-    "sharp": "^0.25.4",
+    "sharp": "^0.30.5",
     "slick-carousel": "^1.8.1",
     "styled": "^1.0.0",
     "styled-components": "^4.1.3",
