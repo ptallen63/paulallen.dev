@@ -52,7 +52,7 @@ const theGame = {
   },
 };
 
-const choosePill = (color) => {
+const choosePill = (color = '') => {
   console.clear();
   switch (color.toLowerCase()) {
     case 'red':
